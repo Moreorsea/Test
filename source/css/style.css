@@ -410,7 +410,7 @@ textarea {
 }
 .gallery__img {
   cursor: -webkit-zoom-in;
-  cursor: zoom-in;
+  cursor: pointer;
 }
 .popup {
   position: absolute;
