@@ -411,6 +411,15 @@ textarea {
 .gallery__img {
   cursor: -webkit-pointer;
   cursor: pointer;
+  position: relative;
+}
+
+.gallery__img:hover {
+  background-image: url("../img/Vector.png");
+  position: absolute;
+  width: 20px;
+  height: 20px;
+
 }
 .popup {
   position: absolute;
@@ -440,8 +449,8 @@ textarea {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  max-height: 90%;
-  max-width: 90%;
+  height: 80%;
+  width: 30%;
 }
 .about {
   font-family: "Helvetica";
