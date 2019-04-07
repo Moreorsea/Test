@@ -7,5 +7,5 @@
 *.sublime*
 node_modules/
 npm-debug.*
-source/less/*.less
 Thumbs.db
+source/less/*.less

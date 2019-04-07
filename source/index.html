@@ -85,6 +85,7 @@
           индивидуальным проектам и авторские дизайнерские разработки.</p>
         </div>
       </article>
+      <div class="container"></div>
       <div class="gallery">
       <ul class="horizontal-scroll-wrapper gallery__list">
         <li class="gallery__container">
@@ -132,10 +133,7 @@
     <script>
       var navMain = document.querySelector('.main-nav');
       var navToggle = document.querySelector('.main-nav__toggle');
-
-      //navMain.classList.remove('main-nav--nojs');
-
-  navToggle.addEventListener('click', function() {
+      navToggle.addEventListener('click', function() {
     if (navMain.classList.contains('main-nav--closed')) {
       navMain.classList.remove('main-nav--closed');
       navMain.classList.add('main-nav--opened');
