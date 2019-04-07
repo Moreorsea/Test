@@ -402,25 +402,38 @@ textarea {
 .gallery {
   overflow-x: auto;
   background-color: #000000;
+  padding-bottom: 60px;
 }
 .gallery__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.gallery__img {
-  cursor: -webkit-pointer;
-  cursor: pointer;
+
+.gallery__container {
   position: relative;
 }
 
-.gallery__img:hover {
-  background-image: url("../img/Vector.png");
-  position: absolute;
+.gallery__img {
+  cursor: -webkit-pointer;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.gallery__eye {
+  display: none;
   width: 20px;
   height: 20px;
-
+  position: absolute;
+  z-index: 20;
+  left: 42%;
+  bottom: -40px;
 }
+
+.gallery__eye--visible {
+  display: block;
+}
+
 .popup {
   position: absolute;
   height: 100%;
