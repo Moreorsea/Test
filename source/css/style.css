@@ -402,38 +402,16 @@ textarea {
 .gallery {
   overflow-x: auto;
   background-color: #000000;
-  padding-bottom: 60px;
 }
 .gallery__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-
-.gallery__container {
-  position: relative;
-}
-
 .gallery__img {
-  cursor: -webkit-pointer;
-  cursor: pointer;
-  margin-right: 20px;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
 }
-
-.gallery__eye {
-  display: none;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  z-index: 20;
-  left: 42%;
-  bottom: -40px;
-}
-
-.gallery__eye--visible {
-  display: block;
-}
-
 .popup {
   position: absolute;
   height: 100%;
@@ -444,10 +422,9 @@ textarea {
   text-align: center;
 }
 .popup_bg {
-  background-color: #000000;
-  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.3);
   position: fixed;
-  z-index: 200;
+  z-index: 1;
   top: 0;
   left: 0;
   bottom: 0;
@@ -457,13 +434,12 @@ textarea {
 }
 .popup_img {
   position: fixed;
-  z-index: 300;
+  z-index: 2;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  height: 80%;
-  width: 30%;
+  max-height: 90%;
 }
 .about {
   font-family: "Helvetica";
