@@ -402,15 +402,46 @@ textarea {
 .gallery {
   overflow-x: auto;
   background-color: #000000;
+  margin-bottom: 40px;
 }
 .gallery__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+.gallery__container {
+  position: relative;
+}
 .gallery__img {
-  cursor: -webkit-zoom-in;
-  cursor: zoom-in;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.gallery__eye {
+  margin-top: 10px;
+  margin-left: 43%;
+  opacity: 0;
+}
+.gallery__img:hover + .gallery__eye {
+  opacity: 1;
+}
+.gallery__line {
+  width: 270px;
+  height: 5px;
+  display: block;
+  background-color: #5D809A;
+  position: absolute;
+}
+.gallery__line.gallery__line--top {
+  margin-top: -15px;
+  opacity: 0;
+}
+.gallery__line.gallery__line--bottom {
+  margin-bottom: -15px;
+  opacity: 0;
+}
+.gallery__img:hover + .gallery__line.gallery__line--bottom,
+.gallery__img:hover + .gallery__line.gallery__line--top {
+  opacity: 1;
 }
 .popup {
   position: absolute;
@@ -439,7 +470,8 @@ textarea {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  max-height: 90%;
+  height: 80%;
+  width: 25%;
 }
 .about {
   font-family: "Helvetica";
