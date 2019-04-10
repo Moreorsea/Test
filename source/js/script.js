@@ -6,9 +6,11 @@ var container = document.querySelector('.container');
 var popupBg = document.querySelector('.popup_bg');
 var popupOpen = function () {
    container.classList.add('popup_bg');
-    fadeIn(400, document.querySelector('.popup_bg')) {
+    var fadeIn = function(time, element) {
       popupBg.classList.add('popup__bg--visible');
     };
+
+    fadeIn(400, document.querySelector('.popup_bg'));
 };
 
 galleryImg.forEach((item) => { //перебираю каждый элемент
