@@ -6,9 +6,10 @@ var container = document.querySelector('.container');
 var popupBg = document.querySelector('.popup_bg');
 var popupOpen = function () {
    container.classList.add('popup_bg');
-   popupBg.fadeIn(400);
-   };
-
+    fadeIn(400, document.querySelector('.popup_bg')) {
+      popupBg.classList.add('popup__bg--visible');
+    };
+};
 
 galleryImg.forEach((item) => { //перебираю каждый элемент
   item.addEventListener('click', function (e) {

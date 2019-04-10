@@ -472,7 +472,7 @@ textarea {
   text-align: center;
 }
 .popup_bg {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   position: fixed;
   z-index: 1;
   top: 0;
@@ -483,7 +483,7 @@ textarea {
   height: auto;
 }
 .popup__bg--visible {
-  background: #000000;
+  background: rgba(0, 0, 0, 0.5);
 }
 .popup_img {
   position: fixed;
