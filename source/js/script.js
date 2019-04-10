@@ -6,6 +6,7 @@ var container = document.querySelector('.container');
 var popupBg = document.querySelector('.popup_bg');
 var popupOpen = function () {
    container.classList.add('popup_bg');
+   popupBg.fadeIn(400);
    };
 
 
@@ -16,14 +17,15 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   console.log(img);
   console.log(element);
 
-  //popupOpen(img);
   popupOpen();
+  container.appendChild(element);
 
   element.classList.add('popup_img');
   var popupClose = function () {
     container.addEventListener('click', function (){
       container.classList.remove('popup_bg');
       element.classList.remove('popup_img');
+      container.removeChild(element);
     });
   };
   popupClose();
