@@ -13,36 +13,14 @@ var popupOpen = function () {
     //fadeIn(400, document.querySelector('.popup_bg'));
 };
 
-galleryImg.forEach((item) => { //перебираю каждый элемент
-  item.addEventListener('click', function (e) {
-  var img = e.currentTarget;
-  var element = img.cloneNode(true);
-  console.log(img);
-  console.log(element);
-
-  popupOpen();
-  container.appendChild(element);
-
-  element.classList.add('popup_img');
-  var popupClose = function () {
-    container.addEventListener('click', function (){
-      container.classList.remove('popup_bg');
-      element.classList.remove('popup_img');
-      container.removeChild(element);
-    });
-  };
-  popupClose();
-  });
-});
-
 var fadeIn = function (time, element) {
   var opacityMin = 0;
-  var opacityMax = 1;
+  var opacityMax = 0.7;
   var step = opacityMax/time;
   console.log(step);
   var element = document.querySelector('.container');
   console.log(element);
-  var elementPopup = document.querySelector('.popup');
+  var elementPopup = document.querySelector('.popup_bg');
   console.log(elementPopup);
 
   for (var i = 0; i <=opacityMax;) {
@@ -55,8 +33,34 @@ var fadeIn = function (time, element) {
   }
 };
 
-fadeIn(300, document.querySelector('.container'));
-fadeIn(300, document.querySelector('.popup_bg'));
+galleryImg.forEach((item) => { //перебираю каждый элемент
+  item.addEventListener('click', function (e) {
+  var img = e.currentTarget;
+  var element = img.cloneNode(true);
+  console.log(img);
+  console.log(element);
+
+  popupOpen();
+
+  container.appendChild(element);
+
+  element.classList.add('popup_img');
+  fadeIn(700, document.querySelector('.container'));
+  fadeIn(700, document.querySelector('.popup_bg'));
+  var popupClose = function () {
+    container.addEventListener('click', function (){
+      container.classList.remove('popup_bg');
+      element.classList.remove('popup_img');
+      container.removeChild(element);
+    });
+  };
+  popupClose();
+  });
+});
+
+
+
+
 
 
 
