@@ -13,7 +13,7 @@ var popupOpen = function () {
     //fadeIn(400, document.querySelector('.popup_bg'));
 };
 
-var fadeIn = function (time, element) {
+var fadeIn = function (time, element, opacityMax) {
   var opacityMin = 0;
   var opacityMax = 0.7;
   var step = opacityMax/time;
@@ -45,8 +45,8 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   container.appendChild(element);
 
   element.classList.add('popup_img');
-  fadeIn(700, document.querySelector('.container'));
-  fadeIn(700, document.querySelector('.popup_bg'));
+  fadeIn(2000, document.querySelector('.container'), 1); //opacity 1
+  fadeIn(2000, document.querySelector('.popup_bg'), 0.7);  //opacity 0.7
   var popupClose = function () {
     container.addEventListener('click', function (){
       container.classList.remove('popup_bg');
@@ -57,11 +57,6 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   popupClose();
   });
 });
-
-
-
-
-
 
 
 //событие перемещения к галерее
