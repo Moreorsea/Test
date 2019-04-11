@@ -6,11 +6,11 @@ var container = document.querySelector('.container');
 var popupBg = document.querySelector('.popup_bg');
 var popupOpen = function () {
    container.classList.add('popup_bg');
-    var fadeIn = function(time, element) {
-      popupBg.classList.add('popup__bg--visible');
-    };
+    //var fadeIn = function(time, element) {
+      //popupBg.classList.add('popup__bg');
+    //};
 
-    fadeIn(400, document.querySelector('.popup_bg'));
+    //fadeIn(400, document.querySelector('.popup_bg'));
 };
 
 galleryImg.forEach((item) => { //перебираю каждый элемент
@@ -34,6 +34,29 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   popupClose();
   });
 });
+
+var fadeIn = function (time, element) {
+  var opacityMin = 0;
+  var opacityMax = 1;
+  var step = opacityMax/time;
+  console.log(step);
+  var element = document.querySelector('.container');
+  console.log(element);
+  var elementPopup = document.querySelector('.popup');
+  console.log(elementPopup);
+
+  for (var i = 0; i <=opacityMax;) {
+   var opacity = opacityMin + (i + step);
+   i = i + step;
+   element.style.opacity = opacity;
+   elementPopup.style.opacity = opacity;
+   console.log(element);
+   console.log(elementPopup);
+  }
+};
+
+fadeIn(300, document.querySelector('.container'));
+fadeIn(300, document.querySelector('.popup_bg'));
 
 
 
