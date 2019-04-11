@@ -4,6 +4,7 @@ var galleryImg = document.querySelectorAll('.gallery__img'); //получила 
 var getContainer = document.querySelector('.gallery__container');
 var container = document.querySelector('.container');
 var popupBg = document.querySelector('.popup_bg');
+var popup = document.querySelector('.popup');
 var popupOpen = function () {
    container.classList.add('popup_bg');
     //var fadeIn = function(time, element) {
@@ -13,23 +14,20 @@ var popupOpen = function () {
     //fadeIn(400, document.querySelector('.popup_bg'));
 };
 
-var fadeIn = function (time, element, opacityMax) {
+var fadeIn = function (time, element, opacity) {
   var opacityMin = 0;
-  var opacityMax = 0.7;
+  var opacityMax = 1;
   var step = opacityMax/time;
   console.log(step);
-  var element = document.querySelector('.container');
-  console.log(element);
-  var elementPopup = document.querySelector('.popup_bg');
-  console.log(elementPopup);
+
 
   for (var i = 0; i <=opacityMax;) {
    var opacity = opacityMin + (i + step);
    i = i + step;
    element.style.opacity = opacity;
-   elementPopup.style.opacity = opacity;
+
    console.log(element);
-   console.log(elementPopup);
+   //console.log(elementPopup);
   }
 };
 
@@ -45,10 +43,14 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   container.appendChild(element);
 
   element.classList.add('popup_img');
-  fadeIn(2000, document.querySelector('.container'), 1); //opacity 1
-  fadeIn(2000, document.querySelector('.popup_bg'), 0.7);  //opacity 0.7
+  //var element = document.querySelector('.popup');
+  //console.log(element);
+  //var elementPopup = document.querySelector('.popup_bg');
+  //console.log(elementPopup);
+  fadeIn(2000, document.querySelector('.popup'), 1); //opacity 1
+  fadeIn(2000, document.querySelector('.popup_bg'), 0.5);  //opacity 0.7
   var popupClose = function () {
-    container.addEventListener('click', function (){
+    popup.addEventListener('click', function (){
       container.classList.remove('popup_bg');
       element.classList.remove('popup_img');
       container.removeChild(element);
