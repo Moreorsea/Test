@@ -468,18 +468,20 @@ textarea {
 }
 .popup {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: none;
+  height: auto;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  display: block;
   text-align: center;
+  z-index: 100;
+  opacity: 1;
 }
 .popup_bg {
   background-color: #000000;
-  opacity: 0;
+  opacity: 0.7;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   bottom: 0;
@@ -487,12 +489,9 @@ textarea {
   width: auto;
   height: auto;
 }
-.popup__bg--visible {
-  opacity: 0.7;
-}
 .popup_img {
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
