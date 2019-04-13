@@ -47,7 +47,7 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   container.appendChild(element);
 
   element.classList.add('popup_img');
-  element.classList.add('gallery__img--visible');
+  //element.classList.add('popup_img--visible');
   console.log(element);
   //var element = document.querySelector('.popup');
   //console.log(element);
