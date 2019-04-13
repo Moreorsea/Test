@@ -7,6 +7,8 @@ var popupBg = document.querySelector('.popup_bg');
 var popup = document.querySelector('.popup');
 var popupOpen = function () {
    container.classList.add('popup_bg');
+   container.classList.add('popup__bg--visible');
+   console.log(container);
     //var fadeIn = function(time, element) {
       //popupBg.classList.add('popup__bg');
     //};
@@ -14,22 +16,24 @@ var popupOpen = function () {
     //fadeIn(400, document.querySelector('.popup_bg'));
 };
 
-var fadeIn = function (time, element, opacity) {
-  var opacityMin = 0;
-  var opacityMax = 1;
-  var step = opacityMax/time;
-  console.log(step);
+//var fadeIn = function (time, element, opacity) {
+  //var opacityMin = 0;
+  //var opacityMax = 0.7;
+  //var step = opacityMax/time;
+  //console.log(step);
 
 
-  for (var i = 0; i <=opacityMax;) {
-   var opacity = opacityMin + (i + step);
-   i = i + step;
-   element.style.opacity = opacity;
+  //for (var i = 0; i <=opacityMax;) {
+   //var opacity = opacityMin + (i + step);
+   //i = i + step;
+   //element.style.opacity = opacity;
 
-   console.log(element);
-   //console.log(elementPopup);
-  }
-};
+   //console.log(element);
+  //var element = document.querySelector('.popup_bg');
+  //console.log(element);
+
+  //}
+//};
 
 galleryImg.forEach((item) => { //перебираю каждый элемент
   item.addEventListener('click', function (e) {
@@ -43,12 +47,14 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   container.appendChild(element);
 
   element.classList.add('popup_img');
+  element.classList.add('gallery__img--visible');
+  console.log(element);
   //var element = document.querySelector('.popup');
   //console.log(element);
   //var elementPopup = document.querySelector('.popup_bg');
   //console.log(elementPopup);
-  fadeIn(2000, document.querySelector('.popup'), 1); //opacity 1
-  fadeIn(2000, document.querySelector('.popup_bg'), 0.5);  //opacity 0.7
+  //fadeIn(2000, document.querySelector('.popup'), 0.7); //opacity 1
+  //fadeIn(2000, document.querySelector('.popup_img'), 1);  //opacity 0.7
   var popupClose = function () {
     popup.addEventListener('click', function (){
       container.classList.remove('popup_bg');
