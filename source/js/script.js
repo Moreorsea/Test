@@ -100,7 +100,7 @@ console.log(buttonBottom);
 buttonBottom.addEventListener('click', function(e) {
   //window.scrollTo(1500, 0);
   window.scrollTo({
-    bottom: 1000,
+    top: 0,
     behavior: 'smooth'
   });
 });
