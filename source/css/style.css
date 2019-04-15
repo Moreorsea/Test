@@ -400,6 +400,7 @@ textarea {
   /* 2 */
 }
 .gallery {
+  overflow: hidden;
   overflow-x: auto;
   background-color: #000000;
   margin-bottom: 10px;
@@ -409,22 +410,106 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .gallery__container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.gallery__container:hover {
+  opacity: 1;
+}
+.gallery__container::before,
+.gallery__container::after {
+  content: '';
+  display: block;
+  width: 270px;
+  height: 5px;
+  background-color: #5D809A;
+  position: absolute;
+}
+.gallery__container::before {
+  top: 100%;
+  visibility: hidden;
+  opacity: 0;
+}
+.gallery__img:hover + .gallery__container::before {
+  visibility: visible;
+  opacity: 1;
+}
+.gallery__container::after {
+  bottom: 100%;
+  display: none;
 }
 .gallery__img {
   cursor: pointer;
   margin-right: 20px;
   opacity: 1;
 }
-.gallery__img--visible {
-  opacity: 1;
+.gallery__img--animation-hidden {
+  -webkit-animation-name: small;
+          animation-name: small;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
+}
+@-webkit-keyframes small {
+  from {
+    height: 80%;
+  }
+  to {
+    height: 0;
+  }
+}
+@keyframes small {
+  from {
+    height: 80%;
+  }
+  to {
+    height: 0;
+  }
+}
+.gallery__img--animation-visible {
+  -webkit-animation-name: big;
+          animation-name: big;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
+}
+@-webkit-keyframes big {
+  from {
+    height: 0;
+  }
+  to {
+    height: 80%;
+  }
+}
+@keyframes big {
+  from {
+    height: 0;
+  }
+  to {
+    height: 80%;
+  }
 }
 .gallery__eye {
   margin-top: 10px;
   margin-left: 43%;
-  opacity: 0;
+  width: 20px;
+  height: 20px;
+  display: none;
 }
 .gallery__img:hover + .gallery__eye {
   opacity: 1;
@@ -455,7 +540,7 @@ textarea {
   display: block;
   background-color: #5D809A;
   position: absolute;
-  opacity: 0;
+  opacity: 1;
 }
 .gallery__line.gallery__line--top {
   bottom: 102%;
@@ -467,7 +552,7 @@ textarea {
   opacity: 1;
 }
 .popup {
-  position: absolute;
+  position: fixed;
   height: auto;
   width: auto;
   top: 50%;
@@ -718,6 +803,10 @@ textarea {
 .promo__button {
   display: none;
 }
+.promo__button-img {
+  width: 25px;
+  height: 25px;
+}
 @media (min-width: 1280px) {
   .promo__button {
     display: block;
@@ -780,20 +869,28 @@ textarea {
 }
 .main-nav__toggle {
   position: absolute;
-  top: 0;
+  top: 12px;
   right: 0;
   z-index: 2;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 18px;
   background-color: #ffffff;
   cursor: pointer;
   border: none;
 }
+/*.main-nav__toggle img {
+  width: 100%;
+  height: 100%;
+}*/
 @media (min-width: 1280px) {
   .main-nav__toggle {
     display: none;
   }
+}
+.main-nav__toggle--close {
+  width: 20px;
+  height: 20px;
 }
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
@@ -805,7 +902,13 @@ textarea {
   white-space: nowrap;
   overflow: hidden;
 }
-.main-nav--closed .main-nav__toggle::before {
+.main-nav__toggle--close-inactive {
+  display: none;
+}
+.main-nav__toggle--open-inactive {
+  display: none;
+}
+/*.main-nav--closed .main-nav__toggle::before {
   content: "";
   position: absolute;
   top: 15px;
@@ -813,11 +916,10 @@ textarea {
   width: 27px;
   height: 3px;
   background-color: #202126;
-  -webkit-box-shadow: 0 6px 0 0 #202126, 0 12px 0 0 #202126, 0 18px 0 0 #202126;
-          box-shadow: 0 6px 0 0 #202126, 0 12px 0 0 #202126, 0 18px 0 0 #202126;
+  box-shadow: 0 6px 0 0 #202126, 0 12px 0 0 #202126, 0 18px 0 0 #202126;
   border-radius: 2px;
-}
-.main-nav--opened .main-nav__toggle::before,
+}*/
+/*.main-nav--opened .main-nav__toggle::before,
 .main-nav--opened .main-nav__toggle::after {
   content: "";
   position: absolute;
@@ -828,16 +930,15 @@ textarea {
   background-color: #202126;
   border-radius: 2px;
 }
-.main-nav--opened .main-nav__toggle::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-.main-nav--opened .main-nav__toggle::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
+
+.main-nav--opened  .main-nav__toggle::before {
+    transform: rotate(45deg);
+    box-shadow: none;
+  }
+
+.main-nav--opened  .main-nav__toggle::after {
+    transform: rotate(-45deg);
+  }*/
 @media (min-width: 1280px) {
   .main-nav--closed .main-nav__toggle::before,
   .main-nav--opened .main-nav__toggle::before,
@@ -872,6 +973,30 @@ textarea {
 }
 .main-nav--closed .main-nav__list {
   display: none;
+  -webkit-animation-name: to-right;
+          animation-name: to-right;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+}
+@-webkit-keyframes to-right {
+  from {
+    -webkit-transform: translateX(40%);
+            transform: translateX(40%);
+  }
+  to {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+@keyframes to-right {
+  from {
+    -webkit-transform: translateX(40%);
+            transform: translateX(40%);
+  }
+  to {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
 }
 .main-nav--opened .main-nav__list {
   position: absolute;
@@ -880,6 +1005,30 @@ textarea {
   background-color: rgba(255, 255, 255, 0.7);
   top: 45px;
   right: -20px;
+  -webkit-animation-name: to-left;
+          animation-name: to-left;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+}
+@-webkit-keyframes to-left {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(40%);
+            transform: translateX(40%);
+  }
+}
+@keyframes to-left {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(40%);
+            transform: translateX(40%);
+  }
 }
 @media (min-width: 835px) {
   .main-nav--opened .main-nav__list {
@@ -927,6 +1076,7 @@ textarea {
   width: 100%;
   position: fixed;
   background-color: #ffffff;
+  z-index: 4;
 }
 .page-header__wrapper {
   width: 95%;

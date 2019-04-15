@@ -10,10 +10,14 @@
     <header class="page-header">
       <div class="page-header__wrapper">
       <a class="header-logo" href="#">
-        <img class="header-logo__img" alt="Логотип" src="img/Logo.png" width="59" height="64">
+        <img class="header-logo__img" alt="Логотип" src="img/Logo.png">
       </a>
       <nav class="main-nav main-nav--closed">
-        <button class="main-nav__toggle" type="button"><span class="visually-hidden">Открыть меню</span></button>
+        <!--<button class="main-nav__toggle" type="button"><span class="visually-hidden">Открыть меню</span></button>-->
+        <button class="main-nav__toggle" type="button">
+          <img class="main-nav__toggle--open" src="img/Group 91.1.png" alt="открыть меню"> 
+          <img class="main-nav__toggle--close main-nav__toggle--close-inactive" src="img/Group 93.png" alt="закрыть меню">
+        </button>
         <ul class="main-nav__list">
           <li class="main-nav__item">
             <a class="main-nav__link" href="#">О нас</a>
@@ -46,7 +50,7 @@
           <p class="promo__text">Двух одинаковых камней не существует</p>
         </div>
         <div class="promo__button">
-          <img class="promo__button-img" src="img/arrow-down.svg" width="25" height="25">
+          <img class="promo__button-img" src="img/arrow-down.svg">
         </div>
       </div>
       <article class="about">
@@ -84,101 +88,81 @@
       <div class="gallery">
       <ul class="horizontal-scroll-wrapper gallery__list">
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/IMG_1022.png">
           <img class="gallery__eye gallery__eye--visible" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/5.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/DSC08143.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/IMG_6924.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/8hVMhD8eWDs.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/8.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/-6WvLcbWdl0.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/g__IwWjuKBw.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/IMG_1040.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container gallery__line--top">
-          <span class="gallery__line"></span>
           <img class="gallery__img" src="img/4.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/DSC00524.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/IMG_1039.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
         <li class="gallery__container">
-          <span class="gallery__line gallery__line--top"></span>
           <img class="gallery__img" src="img/3.png">
           <img class="gallery__eye" src="img/Vector.png">
-          <span class="gallery__line gallery__line--bottom"></span>
         </li>
       </ul>
     </div>
       <div class="button-bottom">
-        <img class="button-bottom__img" src="img/arrow-down.svg" width="30" height="30">
+        <img class="button-bottom__img" src="img/Group 87.svg">
       </div>
     </main>
     <script>
       var navMain = document.querySelector('.main-nav');
       var navToggle = document.querySelector('.main-nav__toggle');
+      var navOpen = navToggle.querySelector('.main-nav__toggle--open');
+      var navClose = navToggle.querySelector('.main-nav__toggle--close');
       navToggle.addEventListener('click', function() {
-    if (navMain.classList.contains('main-nav--closed')) {
-      navMain.classList.remove('main-nav--closed');
-      navMain.classList.add('main-nav--opened');
-    } else {
-      navMain.classList.add('main-nav--closed');
-      navMain.classList.remove('main-nav--opened');
-    }
-  });
+        if(navMain.classList.contains('main-nav--closed')) {
+         navOpen.classList.add('main-nav__toggle--open-inactive');
+         navClose.classList.remove('main-nav__toggle--close-inactive');
+         navMain.classList.remove('main-nav--closed');
+         navMain.classList.add('main-nav--opened');
+        } else {
+          navOpen.classList.remove('main-nav__toggle--open-inactive');
+          navClose.classList.add('main-nav__toggle--close-inactive');
+          navMain.classList.add('main-nav--closed');
+          navMain.classList.remove('main-nav--opened');
+        }
+      });
     </script>
     <script src="js/script.js"></script>
   </body>
