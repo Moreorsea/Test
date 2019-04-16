@@ -7,7 +7,7 @@
 @font-face {
   font-family: "Plumb";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   src: url("../fonts/PlumbLight.woff") format("woff");
 }
 @font-face {
@@ -427,7 +427,7 @@ textarea {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
   padding-top: 10px;
 }
 .gallery__container::before,
@@ -443,13 +443,13 @@ textarea {
 .gallery__container::before {
   top: 100%;
 }
-.gallery__container:hover + .gallery__container::before {
+.gallery__container:hover::before {
   opacity: 1;
 }
 .gallery__container::after {
   bottom: 100%;
 }
-.gallery__container:hover + .gallery__container::after {
+.gallery__container:hover::after {
   opacity: 1;
 }
 .gallery__img {
@@ -502,13 +502,13 @@ textarea {
   }
 }
 .gallery__eye {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 43%;
   width: 20px;
   height: 20px;
   opacity: 0;
 }
-.gallery__container:hover + .gallery__eye {
+.gallery__container:hover > .gallery__eye {
   display: block;
   -webkit-animation-name: visible;
           animation-name: visible;
@@ -590,9 +590,11 @@ textarea {
 .button-bottom {
   text-align: center;
   width: 30px;
+  height: 30px;
   margin: 0 auto 10px;
   position: relative;
 }
+/*
 .button-bottom__circle {
   display: block;
   width: 26px;
@@ -601,6 +603,7 @@ textarea {
   border: 2px solid #5D809A;
   background-color: #ffffff;
 }
+
 .button-bottom__arrow {
   width: 2px;
   height: 12px;
@@ -609,6 +612,7 @@ textarea {
   top: 9px;
   right: 14px;
 }
+
 .button-bottom__arrow::after,
 .button-bottom__arrow::before {
   content: '';
@@ -618,18 +622,18 @@ textarea {
   background-color: #5D809A;
   position: absolute;
 }
+
 .button-bottom__arrow::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   top: -3px;
   left: 2px;
 }
+
 .button-bottom__arrow::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   top: -3px;
   left: -2px;
-}
+}*/
 .about {
   font-family: "Helvetica";
   line-height: 14px;
@@ -647,12 +651,13 @@ textarea {
 }
 @media (min-width: 835px) {
   .about__wrapper {
-    width: 70%;
+    width: 800px;
+    margin: 0 auto;
   }
 }
 @media (min-width: 1280px) {
   .about__wrapper {
-    width: 80%;
+    width: 1000px;
   }
 }
 .about__title {
@@ -816,27 +821,16 @@ textarea {
     bottom: 20px;
     right: -40px;
   }
-  /*.promo__button::before*/
-  /*  .promo__button::before,
-  .promo__button::after {
-    content: '';
-    display: block;
-    background-color: #ffffff;
-    height: 7px;
-    width: 2px;
-    position: absolute;
-  }
-
   .promo__button::before {
-    transform: rotate(-45deg);
+    content: '';
+    width: 1px;
+    height: 33px;
+    background-color: #ffffff;
+    display: block;
+    position: absolute;
+    top: -45px;
+    left: 11px;
   }
-
-  .promo__button::after {
-    transform: rotate(45deg);
-    left: 13px;
-  }
-
-*/
 }
 .promo__line {
   display: none;
