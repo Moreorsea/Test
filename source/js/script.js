@@ -34,8 +34,8 @@ var fadeIn = function (time, element, opacityMax) {
 };
 
 var fadeOut = function (time, element, opacityMax) {
-  var element = document.querySelector('.popup');
-  var elementPopup = document.querySelector('.popup_bg');
+  //var element = document.querySelector('.popup');
+  var element = document.querySelector('.popup_bg');
   var step = opacityMax/time;
   console.log(step);
 
@@ -43,7 +43,7 @@ var fadeOut = function (time, element, opacityMax) {
     var opacity = opacityMax - (i + step);
     console.log(opacity);
     element.style.opacity = opacity;
-    elementPopup.style.opacity = opacity;
+    //elementPopup.style.opacity = opacity;
   }
 }
 
@@ -65,14 +65,30 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
 
   var popupClose = function () {
     container.addEventListener('click', function (){
-      container.classList.remove('popup_bg');
-      element.classList.remove('popup_img');
+      element.classList.remove('gallery__img--animation-visible');
       element.classList.add('gallery__img--animation-hidden');
-      popup.removeChild(element);
-      fadeOut(1000, document.querySelector('.popup_bg'), 0.7);
+      //container.classList.remove('popup_bg');
+      //element.classList.remove('popup_img');
+      
+      //popup.removeChild(element);
+      var removeChild = function () {
+        popup.removeChild(element);
+        
+        element.classList.remove('popup_img');
+      };
+      setTimeout(removeChild, 600);
+
+      var hiddenPopup = function () {
+        container.classList.remove('popup_bg');
+        fadeOut(1000, document.querySelector('.popup_bg'), 0);
+      };
+      setTimeout(hiddenPopup, 700);
+      
     });
+    
   };
   popupClose();
+  //popup.removeChild(element);
   //fadeOut(2000, document.querySelector('.popup'), 1);
   
   });

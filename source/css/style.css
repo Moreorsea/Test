@@ -7,8 +7,8 @@
 @font-face {
   font-family: "Plumb";
   font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/Plumb.woff") format("woff");
+  font-weight: 300;
+  src: url("../fonts/PlumbLight.woff") format("woff");
 }
 @font-face {
   font-family: "Helvetica";
@@ -427,11 +427,8 @@ textarea {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-bottom: 40px;
   padding-top: 10px;
-  padding-bottom: 10px;
-}
-.gallery__container:hover {
-  opacity: 1;
 }
 .gallery__container::before,
 .gallery__container::after {
@@ -441,19 +438,19 @@ textarea {
   height: 5px;
   background-color: #5D809A;
   position: absolute;
+  opacity: 0;
 }
 .gallery__container::before {
   top: 100%;
-  visibility: hidden;
-  opacity: 0;
 }
-.gallery__img:hover + .gallery__container::before {
-  visibility: visible;
+.gallery__container:hover + .gallery__container::before {
   opacity: 1;
 }
 .gallery__container::after {
   bottom: 100%;
-  display: none;
+}
+.gallery__container:hover + .gallery__container::after {
+  opacity: 1;
 }
 .gallery__img {
   cursor: pointer;
@@ -509,14 +506,15 @@ textarea {
   margin-left: 43%;
   width: 20px;
   height: 20px;
-  display: none;
+  opacity: 0;
 }
-.gallery__img:hover + .gallery__eye {
-  opacity: 1;
+.gallery__container:hover + .gallery__eye {
+  display: block;
   -webkit-animation-name: visible;
           animation-name: visible;
   -webkit-animation-duration: 0.5s;
           animation-duration: 0.5s;
+  opacity: 1;
 }
 @-webkit-keyframes visible {
   from {
@@ -534,7 +532,7 @@ textarea {
     opacity: 1;
   }
 }
-.gallery__line {
+/*.gallery__line {
   width: 270px;
   height: 5px;
   display: block;
@@ -542,15 +540,19 @@ textarea {
   position: absolute;
   opacity: 1;
 }
+
 .gallery__line.gallery__line--top {
   bottom: 102%;
 }
+
 .gallery__line.gallery__line--bottom {
   top: 105%;
 }
-.gallery__img:hover + .gallery__line {
+
+.gallery__img:hover + .gallery__line
+ {
   opacity: 1;
-}
+}*/
 .popup {
   position: fixed;
   height: auto;
@@ -870,7 +872,7 @@ textarea {
 .main-nav__toggle {
   position: absolute;
   top: 12px;
-  right: 0;
+  right: 4px;
   z-index: 2;
   display: block;
   width: 35px;
@@ -980,22 +982,22 @@ textarea {
 }
 @-webkit-keyframes to-right {
   from {
-    -webkit-transform: translateX(40%);
-            transform: translateX(40%);
+    -webkit-transform: translateX(140px);
+            transform: translateX(140px);
   }
   to {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 @keyframes to-right {
   from {
-    -webkit-transform: translateX(40%);
-            transform: translateX(40%);
+    -webkit-transform: translateX(140px);
+            transform: translateX(140px);
   }
   to {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 .main-nav--opened .main-nav__list {
@@ -1012,22 +1014,22 @@ textarea {
 }
 @-webkit-keyframes to-left {
   from {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    -webkit-transform: translateX(700px);
+            transform: translateX(700px);
   }
   to {
-    -webkit-transform: translateX(40%);
-            transform: translateX(40%);
+    -webkit-transform: translateX(140px);
+            transform: translateX(140px);
   }
 }
 @keyframes to-left {
   from {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    -webkit-transform: translateX(700px);
+            transform: translateX(700px);
   }
   to {
-    -webkit-transform: translateX(40%);
-            transform: translateX(40%);
+    -webkit-transform: translateX(140px);
+            transform: translateX(140px);
   }
 }
 @media (min-width: 835px) {
@@ -1051,7 +1053,7 @@ textarea {
     display: -ms-flexbox;
     display: flex;
     width: 700px;
-    margin-left: -150px;
+    margin-left: -90px;
   }
   .main-nav__item:first-child {
     margin-left: 20px;
@@ -1069,7 +1071,7 @@ textarea {
   }
 }
 .main-nav__item {
-  width: 143px;
+  margin: 0 15px;
 }
 .page-header {
   line-height: 16px;
