@@ -875,10 +875,6 @@ textarea {
   cursor: pointer;
   border: none;
 }
-/*.main-nav__toggle img {
-  width: 100%;
-  height: 100%;
-}*/
 @media (min-width: 1280px) {
   .main-nav__toggle {
     display: none;
@@ -904,37 +900,6 @@ textarea {
 .main-nav__toggle--open-inactive {
   display: none;
 }
-/*.main-nav--closed .main-nav__toggle::before {
-  content: "";
-  position: absolute;
-  top: 15px;
-  right: 17px;
-  width: 27px;
-  height: 3px;
-  background-color: #202126;
-  box-shadow: 0 6px 0 0 #202126, 0 12px 0 0 #202126, 0 18px 0 0 #202126;
-  border-radius: 2px;
-}*/
-/*.main-nav--opened .main-nav__toggle::before,
-.main-nav--opened .main-nav__toggle::after {
-  content: "";
-  position: absolute;
-  top: 19px;
-  right: 17px;
-  width: 27px;
-  height: 3px;
-  background-color: #202126;
-  border-radius: 2px;
-}
-
-.main-nav--opened  .main-nav__toggle::before {
-    transform: rotate(45deg);
-    box-shadow: none;
-  }
-
-.main-nav--opened  .main-nav__toggle::after {
-    transform: rotate(-45deg);
-  }*/
 @media (min-width: 1280px) {
   .main-nav--closed .main-nav__toggle::before,
   .main-nav--opened .main-nav__toggle::before,
@@ -971,27 +936,23 @@ textarea {
   display: none;
   -webkit-animation-name: to-right;
           animation-name: to-right;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation-duration: 1000ms;
+          animation-duration: 1000ms;
 }
 @-webkit-keyframes to-right {
   from {
-    -webkit-transform: translateX(140px);
-            transform: translateX(140px);
+    right: -20px;
   }
   to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    right: -150px;
   }
 }
 @keyframes to-right {
   from {
-    -webkit-transform: translateX(140px);
-            transform: translateX(140px);
+    right: -20px;
   }
   to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    right: -150px;
   }
 }
 .main-nav--opened .main-nav__list {
@@ -1003,27 +964,23 @@ textarea {
   right: -20px;
   -webkit-animation-name: to-left;
           animation-name: to-left;
-  -webkit-animation-duration: 500ms;
-          animation-duration: 500ms;
+  -webkit-animation-duration: 1000ms;
+          animation-duration: 1000ms;
 }
 @-webkit-keyframes to-left {
   from {
-    -webkit-transform: translateX(700px);
-            transform: translateX(700px);
+    right: -150px;
   }
   to {
-    -webkit-transform: translateX(140px);
-            transform: translateX(140px);
+    right: -20px;
   }
 }
 @keyframes to-left {
   from {
-    -webkit-transform: translateX(700px);
-            transform: translateX(700px);
+    right: -150px;
   }
   to {
-    -webkit-transform: translateX(140px);
-            transform: translateX(140px);
+    right: -20px;
   }
 }
 @media (min-width: 835px) {

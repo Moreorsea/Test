@@ -151,16 +151,17 @@
       var navOpen = navToggle.querySelector('.main-nav__toggle--open');
       var navClose = navToggle.querySelector('.main-nav__toggle--close');
       navToggle.addEventListener('click', function() {
-        if(navMain.classList.contains('main-nav--closed')) {
-         navOpen.classList.add('main-nav__toggle--open-inactive');
-         navClose.classList.remove('main-nav__toggle--close-inactive');
-         navMain.classList.remove('main-nav--closed');
-         navMain.classList.add('main-nav--opened');
-        } else {
-          navOpen.classList.remove('main-nav__toggle--open-inactive');
-          navClose.classList.add('main-nav__toggle--close-inactive');
-          navMain.classList.add('main-nav--closed');
-          navMain.classList.remove('main-nav--opened');
+        if(navMain.classList.contains('main-nav--closed')) { // если меню закрыто и кнопка-бургер видна
+         navOpen.classList.add('main-nav__toggle--open-inactive'); //инактивирую бургер
+         navClose.classList.remove('main-nav__toggle--close-inactive'); //удаляю класс инактивации кнопки-креста
+         navMain.classList.remove('main-nav--closed'); //удаляю у меню кнопку-бургер
+         navMain.classList.add('main-nav--opened'); //добавляю меню кнопку-крест
+        } else { //если видна кнопка-крест
+          navOpen.classList.remove('main-nav__toggle--open-inactive'); //удаляю класс инактивации бургера
+          navClose.classList.add('main-nav__toggle--close-inactive'); //инкативирую кнопку-крест
+
+          navMain.classList.add('main-nav--closed'); //добавляю меню кнопку-бургер
+          navMain.classList.remove('main-nav--opened'); //удаляю кнопку-крест
         }
       });
     </script>
