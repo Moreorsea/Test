@@ -949,8 +949,8 @@ textarea {
             transform: translateX(-140px);
   }
   to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
   }
 }
 @keyframes to-right {
@@ -959,8 +959,8 @@ textarea {
             transform: translateX(-140px);
   }
   to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
   }
 }
 .main-nav--opened .main-nav__list {
@@ -1013,6 +1013,9 @@ textarea {
     display: flex;
     width: 700px;
     margin-left: -90px;
+    top: 15px;
+    -webkit-animation-name: none;
+            animation-name: none;
   }
   .main-nav__item:first-child {
     margin-left: 20px;
