@@ -87,7 +87,6 @@
 }
 
 .main-nav--closed .main-nav__list {
-  //display: none;
   animation-name: to-right;
   animation-duration: 1000ms;
   position: absolute;
@@ -95,8 +94,17 @@
   height: 500px;
   background-color: rgba(255, 255, 255, 0.7);
   top: 45px;
+}
 
-  //right: -20px;
+@media (min-width: 835px) {
+  .main-nav--closed .main-nav__list {
+    width: 110%;
+    right: -40px;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+  }
 }
 
 @keyframes to-right {

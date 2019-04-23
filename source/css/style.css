@@ -943,6 +943,21 @@ textarea {
   background-color: rgba(255, 255, 255, 0.7);
   top: 45px;
 }
+@media (min-width: 835px) {
+  .main-nav--closed .main-nav__list {
+    width: 110%;
+    right: -40px;
+    height: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+}
 @-webkit-keyframes to-right {
   from {
     -webkit-transform: translateX(-140px);
