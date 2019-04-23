@@ -28,4 +28,4 @@
     };
   };
   
-  getCoords(fourElem);
+  getCoords(firstElem);
