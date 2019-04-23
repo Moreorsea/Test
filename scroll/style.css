@@ -8,3 +8,17 @@ margin-bottom: 20px;
 .three-container {
   background-color: red;
 }
+
+form {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  width: 200px;
+}
+
+input[type="submit"] {
+  width: 100px;
+}

@@ -6,7 +6,23 @@
   var fourElem = document.querySelector('.four-container');
   var docEl = document.documentElement;
 
-  var getCoords = function (elem) {
+  /*var getValue = function () {
+    var inputValue = document.querySelector("#text").value;
+    console.log(inputValue);
+  };
+  document.querySelector("#submit").onclick = getValue();*/
+
+  var submit = document.querySelector("#submit");
+  var inputText = document.querySelector("#text");
+  console.log(submit);
+  console.log(inputText);
+  submit.onclick = function () {
+    
+    var inputValue = inputText.getAttribute("value");
+    console.log(inputValue);
+  };
+
+ /* var getCoords = function (elem) {
     //получаем координаты контейнера
     var box = elem.getBoundingClientRect();
     var body = document.body;
@@ -28,4 +44,4 @@
     };
   };
   
-  getCoords(firstElem);
+  getCoords();*/
