@@ -31,16 +31,24 @@
     
 
     //в цикле по шагам приближаюсь до точки, возле которой останавливается скроллинг
-   var sum = 50;
+   var currentCoord = box.top; //текущая координата, с которой начинается прокрутка до следующего элемента
+   console.log(currentCoord); //координата элемента, до которого нужно скроллить
 
    var timer = function () {
      var timerId = setInterval(function(){
-       sum = sum + 10;
-       console.log(top);
-     
-     if(sum > top) clearInterval(timerId);
-     console.log(sum);
-     window.scroll(0, sum);
+ 
+      if(currentCoord > top) { //если координата, на которой мы сейчас, бальше, чем требуемая
+        //шаг вычитать
+        top = currentCoord - 10;
+        if(currentCoord < top) clearInterval(timerId); //когда дошагаю до момента, что текущая координата будет меньше
+        //требуемой, таймер отключить
+        window.scroll(0, top);
+      } else {
+        //шаг прибавлять
+        top = currentCoord + 10;
+        if(currentCoord > top) clearInterval(timerId);
+        window.scroll(0, top);
+      }
      },10);
    };
 
@@ -48,11 +56,6 @@
    return top;
    };
 
-   
-
-   getCoords(index);
-
-   
-   
+   getCoords(index); 
  };
 
