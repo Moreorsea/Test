@@ -11,7 +11,7 @@
    console.log(text);
 
    //нахожу элемент по введенному пользователем числу
-   var index = document.querySelector('#a1[dataset="'+text+'"]');
+   var index = document.querySelector('[dataset="${text}]"');
    console.log(index);
   
    //получить координату, до которой нужно скроллить
