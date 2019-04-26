@@ -42,13 +42,13 @@
    
     var timer = function () {
      var timerId = setInterval(function(){     
-       var move = top + step;
-       console.log(move);
+       result = result + step;
+       console.log(result);
    
         if(documentCoords.height > top) {clearInterval(timerId);
-        window.scroll(0, move);
+        window.scroll(0, result);
       }
-     },3000);
+     },300);
    };
 
    timer ();
