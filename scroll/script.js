@@ -19,7 +19,7 @@
     //получаю координату контейнера
     var box = element.getBoundingClientRect();
     var documentCoords = document.documentElement.getBoundingClientRect();
-    console.log(documentCoords);
+    console.log(documentCoords.height);
     console.log(box);
     var body = document.body;
     
@@ -33,20 +33,22 @@
     
 
     //в цикле по шагам приближаюсь до точки, возле которой останавливается скроллинг
-   var currentCoord = window.pageYOffset; //текущая координата, с которой начинается прокрутка до следующего элемента
-   
+   var currentCoord = window.pageYOffset; //текущая координата, с которой начинается прокрутка до следующего элемента  
    console.log(currentCoord); //координата элемента, до которого нужно скроллить
-
-   var timer = function () {
-     var timerId = setInterval(function(){
-       var result = currentCoord + box.top;
-       console.log(result);
- 
-      
-        if(2088 > top) {clearInterval(timerId);
-        window.scroll(0, result);
+   var result = currentCoord + box.top;
+    console.log(result);
+    var step = result/300;
+    console.log(step);
+   
+    var timer = function () {
+     var timerId = setInterval(function(){     
+       var move = top + step;
+       console.log(move);
+   
+        if(documentCoords.height > top) {clearInterval(timerId);
+        window.scroll(0, move);
       }
-     },3);
+     },3000);
    };
 
    timer ();
