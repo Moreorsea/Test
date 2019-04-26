@@ -4,57 +4,35 @@
   var submit = document.querySelector(".submit");
   var inputText = document.querySelector("#text");
 
-//при клике на "скроллить" получаю номер блока, до которого нужно скроллить
  submit.onclick = function () {
-   //получила номер блока, который ввел пользователь
-   var text = inputText.value;
-   console.log(text);
+  //получила номер блока, который ввел пользователь
+  var text = inputText.value;
+  console.log(text);
 
-   //нахожу элемент по введенному пользователем числу
-   var index = document.querySelector('[dataset="${text}]"');
-   console.log(index);
-  
-   //получить координату, до которой нужно скроллить
-   var getCoords = function (element) {
-    //получаю координату контейнера
-    var box = element.getBoundingClientRect();
-    var documentCoords = document.documentElement.getBoundingClientRect();
-    console.log(documentCoords.height);
-    console.log(box);
-    var body = document.body;
-    
-    //считаем прокрутку страницы
-    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-    console.log(scrollTop); 
+  //нахожу элемент по введенному пользователем числу
+  var index = document.querySelector(`[dataset="${text}"]`);
+  console.log(index);
 
-    //координаты нужного элемента = координаты элемента относительно окна + прокрутка
-    var top = Math.round(box.top + scrollTop);
-    console.log(top);
-    
+  //получить координату, до которой нужно скроллить
 
-    //в цикле по шагам приближаюсь до точки, возле которой останавливается скроллинг
-   var currentCoord = window.pageYOffset; //текущая координата, с которой начинается прокрутка до следующего элемента  
-   console.log(currentCoord); //координата элемента, до которого нужно скроллить
-   var result = currentCoord + box.top;
-    console.log(result);
-    var step = result/300;
-    console.log(step);
-   
-    var timer = function () {
-     var timerId = setInterval(function(){     
-       result = result + step;
-       console.log(result);
-   
-        if(documentCoords.height > top) {clearInterval(timerId);
-        window.scroll(0, result);
-      }
-     },300);
-   };
 
-   timer ();
-   return top;
-   };
+  getCoords(index);
+};
 
-   getCoords(index); 
- };
-
+  var getCoords = function (element) {
+      // координата элемента от верха страницы
+      var coord = element.offsetTop;
+      
+      var difference = coord - window.scrollY;
+      var step = difference / 25;
+      
+      var interval = setInterval(function() {
+          window.scrollTo(0, window.scrollY + step);
+          
+          if (Math.abs(window.scrollY - coord) < 20 ) {
+              window.scrollTo(0, coord);
+              clearInterval(interval);
+          }
+          
+      }, 20);
+  };
