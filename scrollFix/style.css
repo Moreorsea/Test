@@ -1,0 +1,20 @@
+.container {
+width: 100vw;
+height: 100vh;
+}
+
+.container--lightblue {
+  background-color: lightblue;
+}
+
+.container--lightgreen {
+  background-color: lightgreen;
+}
+
+.container--pink {
+  background-color: pink;
+}
+
+.container--lightyellow {
+  background-color: lightyellow;
+}
