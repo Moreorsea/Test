@@ -49,10 +49,12 @@ wrapper.addEventListener('wheel', function(e) {
   console.log(currentElementIndex);
 });
 
-document.querySelector('.wrapper').addEventListener('touchstart', function(){
-	document.querySelector('.wrapper').style.background = '#f00';
+var wrapper = document.querySelector('.wrapper');
+
+wrapper.addEventListener('touchstart', function (){
+  wrapper.style.background = '#f00';
 });
-  
-  document.querySelector('.wrapper').addEventListener('touchend', function(){
-	document.querySelector('.wrapper').style.background = '#fff';
+
+wrapper.addEventListener('touchend', function (){
+  wrapper.style.background = '#fff';
 });
