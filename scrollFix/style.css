@@ -8,13 +8,19 @@ body {
 }
 
 .dotted {
-  position: fixed;
-  z-index: 10;
-  display: block;
-  list-style: none;
-  right: 30px;
-  height: 50%;
-  transform: translateY(100%);
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .dotted {
+    position: fixed;
+    z-index: 10;
+    display: block;
+    list-style: none;
+    right: 30px;
+    height: 50%;
+    transform: translateY(100%);
+  }
 }
 
 .circle {

@@ -98,9 +98,6 @@ wrapper.addEventListener('touchstart', function (evt){
           element[i].style.transform = `translateY(${sum}vh)`;
           console.log(element[i].style.transform = `translateY(${sum}vh)`);
         }
-  
-        console.log(circle[currentElementIndex].classList.remove('circle--checked'));
-        //circle[currentElementIndex -1].classList.add('circle--checked');
       } else {
         currentElementIndex === 0;
       }
