@@ -87,6 +87,23 @@ wrapper.addEventListener('touchstart', function (evt){
     } else {
       //снизу вверх
       wrapper.style.background = 'yellow';
+      if(currentElementIndex > 0) {
+        currentElementIndex--;
+        circle[currentElementIndex -1].classList.add('circle--checked');
+        circle[currentElementIndex].classList.remove('circle--checked');
+        for (var i = 3; i < element.length; i--) {
+          var sum = -100 * (currentElementIndex - 1);
+          console.log(sum);
+          console.log(currentElementIndex -1);
+          element[i].style.transform = `translateY(${sum}vh)`;
+          console.log(element[i].style.transform = `translateY(${sum}vh)`);
+        }
+  
+        console.log(circle[currentElementIndex].classList.remove('circle--checked'));
+        //circle[currentElementIndex -1].classList.add('circle--checked');
+      } else {
+        currentElementIndex === 0;
+      }
     }
   });
 });
