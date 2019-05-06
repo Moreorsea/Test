@@ -39,7 +39,7 @@ wrapper.addEventListener('wheel', function(e) {
         element[i].style.transform = `translateY(${sum}vh)`;
         console.log(element[i].style.transform = `translateY(${sum}vh)`);
       }
-      
+
       console.log(circle[currentElementIndex].classList.remove('circle--checked'));
       //circle[currentElementIndex -1].classList.add('circle--checked');
     } else {
@@ -54,6 +54,13 @@ var wrapper = document.querySelector('.container--lightblue');
 wrapper.addEventListener('touchstart', function (){
   wrapper.style.background = '#f00';
   console.log(wrapper.style.background = '#f00');
+});
+
+wrapper.addEventListener('touchmove', function (evt) {
+  document.querySelector('#x').innerHTML = parseInt(evt.changedTouches[0].pageX);
+  console.log(evt.changedTouches[0].pageX); //получить координату пальца х
+  document.querySelector('#y').innerHTML = parseInt(evt.changedTouches[0].pageY);
+  console.log(evt.changedTouches[0].pageY); //получить координату пальца у
 });
 
 wrapper.addEventListener('touchend', function (){
