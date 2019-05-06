@@ -48,3 +48,11 @@ wrapper.addEventListener('wheel', function(e) {
   }
   console.log(currentElementIndex);
 });
+
+document.querySelector('.wrapper').addEventListener('touchstart', function(){
+	document.querySelector('.wrapper').style.background = '#f00';
+});
+  
+  document.querySelector('.wrapper').addEventListener('touchend', function(){
+	document.querySelector('.wrapper').style.background = '#fff';
+});
