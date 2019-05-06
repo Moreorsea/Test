@@ -49,10 +49,11 @@ wrapper.addEventListener('wheel', function(e) {
   console.log(currentElementIndex);
 });
 
-var wrapper = document.querySelector('.wrapper');
+var wrapper = document.querySelector('.container--lightblue');
 
 wrapper.addEventListener('touchstart', function (){
   wrapper.style.background = '#f00';
+  console.log(wrapper.style.background = '#f00');
 });
 
 wrapper.addEventListener('touchend', function (){
