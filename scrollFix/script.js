@@ -49,20 +49,48 @@ wrapper.addEventListener('wheel', function(e) {
   console.log(currentElementIndex);
 });
 
-var wrapper = document.querySelector('.container--lightblue');
+var wrapper = document.querySelector('.wrapper');
 
-wrapper.addEventListener('touchstart', function (){
+wrapper.addEventListener('touchstart', function (evt){
   wrapper.style.background = '#f00';
   console.log(wrapper.style.background = '#f00');
+  var startY = parseInt(evt.changedTouches[0].pageY);
+  console.log(startY); //отработало
+
+  wrapper.addEventListener('touchmove', function (evt) {
+    var moveX = parseInt(evt.changedTouches[0].pageX);
+    console.log(moveX); //получить координату пальца х
+    var moveY = parseInt(evt.changedTouches[0].pageY);
+    console.log(moveY); //получить координату пальца у
+
+    var delta = moveY - startY;
+    console.log(delta);
+    var currentElementIndex = evt.target.id;
+    console.log(currentElementIndex);
+    if (delta > 0) {
+      //то листание сверху вниз
+      wrapper.style.background = 'green';
+      if(currentElementIndex < element.length) {
+        for (var i = 0; i < element.length; i++) {
+          var sum = -100 * currentElementIndex;
+          console.log(sum);
+          element[i].style.transform = `translateY(${sum}vh)`;
+          console.log(element[i].style.transform = `translateY(${sum}vh)`);
+        }
+        circle[currentElementIndex].classList.add('circle--checked');
+        circle[currentElementIndex -1].classList.remove('circle--checked');
+        console.log(currentElementIndex);
+      } else {
+        currentElementIndex === element.length - 1;
+      }
+      
+    } else {
+      //снизу вверх
+      wrapper.style.background = 'yellow';
+    }
+  });
 });
 
-wrapper.addEventListener('touchmove', function (evt) {
-  document.querySelector('#x').innerHTML = parseInt(evt.changedTouches[0].pageX);
-  console.log(evt.changedTouches[0].pageX); //получить координату пальца х
-  document.querySelector('#y').innerHTML = parseInt(evt.changedTouches[0].pageY);
-  console.log(evt.changedTouches[0].pageY); //получить координату пальца у
-});
-
-wrapper.addEventListener('touchend', function (){
-  wrapper.style.background = '#fff';
+wrapper.addEventListener('touchend', function (evt){
+  wrapper.style.background = 'lightblue';
 });
