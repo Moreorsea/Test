@@ -30,8 +30,8 @@ wrapper.addEventListener('wheel', function(e) {
   } else {
     if(currentElementIndex > 0) {
       currentElementIndex--;
-      circle[currentElementIndex].classList.remove('circle--checked');
       circle[currentElementIndex -1].classList.add('circle--checked');
+      circle[currentElementIndex].classList.remove('circle--checked');
       for (var i = 3; i < element.length; i--) {
         var sum = -100 * (currentElementIndex - 1);
         console.log(sum);
