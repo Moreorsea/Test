@@ -11,13 +11,6 @@ body {
   display: none;
 }
 
-p {
-  font-size: 30px;
-  text-align: center;
-  padding-top: 40px;
-  margin: 0;
-}
-
 @media (min-width: 1200px) {
   .dotted {
     position: fixed;
