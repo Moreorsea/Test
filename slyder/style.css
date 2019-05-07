@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.wrapper {
+  overflow: hidden;
+  width: 500vw;
+  display: flex;
+}
+
+.button-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+}
+
+.back, .next {
+  top: 15%;
+  position: fixed;
+}
+
+.back {
+  display: none;
+}
+
+.next {
+  left: 24%;
+}
+
+.container {
+width: 100vw;
+height: 100vh;
+transition: ease 0.8s;
+}
+
+.container--lightblue {
+  background-color: lightblue;
+}
+
+.container--lightgreen {
+  background-color: lightgreen;
+}
+
+.container--pink {
+  background-color: pink;
+}
+
+.container--lightyellow {
+  background-color: lightyellow;
+}
+
+.container--purple {
+  background-color: purple;
+}
