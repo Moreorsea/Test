@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  height: 300px;
+  transition: ease 0.8s;
+}
+
+.left, .right {
+  top: 15%;
+  position: fixed;
+}
+
+.left {
+  display: none;
+}
+
+.right {
+  /*left: 23%;*/
+  display: block;
+}
+
+.container {
+width: 100vw;
+height: 100vh;
+transition: ease 0.8s;
+}
+
+.container--lightblue {
+  background-color: lightblue;
+}
+
+.container--lightgreen {
+  background-color: lightgreen;
+}
+
+.container--pink {
+  background-color: pink;
+}
+
+.container--lightyellow {
+  background-color: lightyellow;
+}
+
+.container--purple {
+  background-color: purple;
+}
