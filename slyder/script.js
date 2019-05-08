@@ -9,13 +9,27 @@ console.log(element.length);
 //нажатие на левую кнопку будет уменьшать id
 var buttonNext = document.querySelector('.next');
 var buttonBack = document.querySelector('.back');
-
+var index = 0;
 buttonNext.addEventListener('click', function (event){
   buttonBack.style.display = 'block';
-    wrapper.style.transform = `translateX(-100vw)`;
-});
+  if (index < element.length - 1) {
+    index++;
+    if(index === element.length -1) {
+      buttonNext.style.display = 'none';
+    }
+  }
+  var sum = -100 * index;
+  console.log(sum);
+    wrapper.style.transform = `translateX(${sum}vw)`;
 
+});
+var indexBack = element.length -1;
 buttonBack.addEventListener('click', function(event) {
-  wrapper.style.transform = `translateX(0vw)`;
-  buttonBack.style.display = 'none';
+  indexBack--;
+  buttonNext.style.display = 'block';
+  var sumBack = -100 * indexBack;
+  wrapper.style.transform = `translateX(${sumBack}vw)`;
+  if (indexBack === 0) {
+    buttonBack.style.display = 'none';
+  }
 });
