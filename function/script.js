@@ -2,43 +2,43 @@
 
 var element = document.querySelectorAll('.container');
 var wrapper = document.querySelector('.wrapper');
-var circle = document.querySelectorAll('.circle');
 console.log(element.length);
 //функция (контейнер, кнопки, длительность анимации)
 var getContainer = function(selectorContainer, buttonLeft, buttonRight, speedAnimation) {
   var container = document.querySelector(selectorContainer);
   console.log(container);
-  container.style.width = '500vw';
 
   var index = 0;
   var left = document.querySelector(buttonLeft);
   var right = document.querySelector(buttonRight);
-  right.addEventListener('click', function() {
-    left.style.display = 'block';
-    rigth.style.left = '24%';
-  if (index < element.length - 1) {
-    index++;
-    if(index === element.length -1) {
-      right.style.display = 'none';
+  var wrapperShift = wrapper.offsetWidth/2 - element[index].offsetWidth/2;
+  console.log(wrapperShift);
+  wrapper.style.transform = `translateX(${wrapperShift}px)`;
+  var currentElement = 0;
+
+  right.addEventListener('click', function(){
+    if (index < element.length) {
+      console.log(element[index]);
+      currentElement = element[index].offsetWidth;
+      console.log(currentElement);
+      var newElement = element[index+1].offsetWidth;
+      wrapperShift = wrapperShift - (currentElement/2 + newElement/2);
+      console.log(wrapperShift);
+      wrapper.style.transform = `translateX(${wrapperShift}px)`;
+      index++;
     }
-  }
-  var sum = -100 * index;
-  console.log(sum);
-    container.style.transform = `translateX(${sum}vw)`;
   });
 
   var indexBack = element.length -1;
+  console.log(indexBack);
   left.addEventListener('click', function() {
+  wrapperShift = wrapperShift + element[indexBack].offsetWidth/2 + element[indexBack - 1].offsetWidth/2;
+    console.log(wrapperShift);
+    wrapper.style.transform = `translateX(${wrapperShift}px)`;
     indexBack--;
-    right.style.display = 'block';
-     var sumBack = -100 * indexBack;
-    container.style.transform = `translateX(${sumBack}vw)`;
-  if (indexBack === 0) {
-    left.style.display = 'none';
-  }
 });
 
   container.style.transition = `ease ${speedAnimation}ms`;
 };
 
-getContainer('.wrapper', '.left', '.right', 800);
+getContainer();
