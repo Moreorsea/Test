@@ -17,7 +17,8 @@ var getContainer = function(selectorContainer, buttonLeft, buttonRight, speedAni
   var currentElement = 0;
 
   right.addEventListener('click', function(){
-    if (index < element.length) {
+    if (index < element.length -1) {
+
       console.log(element[index]);
       currentElement = element[index].offsetWidth;
       console.log(currentElement);
@@ -25,6 +26,15 @@ var getContainer = function(selectorContainer, buttonLeft, buttonRight, speedAni
       wrapperShift = wrapperShift - (currentElement/2 + newElement/2);
       console.log(wrapperShift);
       wrapper.style.transform = `translateX(${wrapperShift}px)`;
+        if(index < 6) {
+          element[index].style.opacity = '0';
+          element[index + 1].style.opacity = '1';
+          element[index + 2].style.opacity = '1';
+          if (index === 6) {
+            element[index].style.opacity = '1';
+            element[index + 1].style.opacity = '1';
+          }
+        }
       index++;
     }
   });
@@ -35,6 +45,13 @@ var getContainer = function(selectorContainer, buttonLeft, buttonRight, speedAni
   wrapperShift = wrapperShift + element[indexBack].offsetWidth/2 + element[indexBack - 1].offsetWidth/2;
     console.log(wrapperShift);
     wrapper.style.transform = `translateX(${wrapperShift}px)`;
+    element[indexBack].style.opacity = '0';
+    element[indexBack - 1].style.opacity = '1';
+    element[indexBack -2].style.opacity = '1';
+    if (indexBack === 1) {
+      element[indexBack].style.opacity = '1';
+      element[indexBack + 1].style.opacity = '1';
+    }
     indexBack--;
 });
 

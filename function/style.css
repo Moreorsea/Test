@@ -49,15 +49,29 @@ height: 200px;
 .container--pink {
   background-color: pink;
   width: 30%;
-
+  opacity: 0;
 }
 
 .container--lightyellow {
   background-color: lightyellow;
   width: 15%;
+  opacity: 0;
 }
 
 .container--purple {
   background-color: purple;
   width: 25%;
+  opacity: 0;
+}
+
+.container--brown  {
+  background-color: brown;
+  width: 10%;
+  opacity: 0;
+}
+
+.container--red {
+  background-color: red;
+  width: 50%;
+  opacity: 0;
 }
