@@ -41,4 +41,4 @@ var getContainer = function(selectorContainer, buttonLeft, buttonRight, speedAni
   container.style.transition = `ease ${speedAnimation}ms`;
 };
 
-getContainer();
+getContainer('.wrapper', '.left', '.right', 800);
