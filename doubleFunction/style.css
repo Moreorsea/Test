@@ -39,41 +39,46 @@ height: 200px;
 .container--lightblue {
   background-color: lightblue;
   width: 100px;
-/*  transform: translateX(668px);*/
+
 }
 
 .container--lightgreen {
   background-color: lightgreen;
   width: 200px;
-  /*transform: translateX(668px);*/
+
 }
 
 .container--pink {
   background-color: pink;
   width: 400px;
   visibility: hidden;
+
 }
 
 .container--lightyellow {
   background-color: lightyellow;
   width: 200px;
   visibility: hidden;
+
 }
 
 .container--purple {
   background-color: purple;
   width: 500px;
   visibility: hidden;
+
 }
 
 .container--brown  {
   background-color: brown;
   width: 150px;
   visibility: hidden;
+
 }
 
 .container--red {
   background-color: red;
   width: 700px;
   visibility: hidden;
+
 }

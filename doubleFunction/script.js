@@ -13,13 +13,12 @@ var getContainer = function(selectorContainer, buttonLeft, buttonRight, speedAni
   //под индексом 0 - первый элемент
 
   var wrapperWidth = 771;
-  // ширина - 771px
-
-
   var left = document.querySelector(buttonLeft);
   var right = document.querySelector(buttonRight);
 
   right.addEventListener('click', function(){
+
+
     if (index < element.length -1) {
       //считаю половину суммы ширин двух близлежащих блоков
       console.log(element[index]);
@@ -30,46 +29,51 @@ var getContainer = function(selectorContainer, buttonLeft, buttonRight, speedAni
 
       var delta = wrapperWidth - sumBlocks;
       console.log(delta);
-      element[index].style.transform = `translateX(${delta}px)`;
-      element[index + 1].style.transform = `translateX(${delta}px)`;
+      for (var i = 0; i < element.length; i++) {
+        element[i].style.transform = `translateX(${delta}px)`;
+      }
+
+    //  element[index + 1].style.transform = `translateX(${delta}px)`;
 
       wrapperWidth = wrapperWidth - element[index].offsetWidth;
       console.log(wrapperWidth);
 
-        if(index < 6) {
-          element[index].style.visibility = 'visible';
-          element[index + 1].style.visibility = 'visible';
-
-          if (index === 6) {
-            element[index].style.visibility = 'visible';
-            element[index + 1].style.visibility = 'visible';
-          }
-        }
       index++;
+      if(index >= 2) {
+        element[index].style.visibility = 'visible';
+        element[index-2].style.visibility = 'hidden';
+      }
     }
+    return index;
   });
 
+var indexBack = element.length -1;
 
-  left.addEventListener('click', function() {
-    if (index > 1) {
-      console.log(element[index]);
-      var sumBlocks = Math.round((element[index].offsetWidth + element[index - 1].offsetWidth)/2);
-      console.log(sumBlocks);
-      console.log(wrapperWidth);
-      var delta = wrapperWidth + sumBlocks;
-      console.log(delta);
-      element[index].style.visibility = 'hidden';
-      element[index - 2].style.transform = `translateX(${delta}px)`;
-      console.log(element[index-2]);
-      element[index -1].style.transform = `translateX(${delta}px)`;
-      console.log(element[index -1]);
+console.log(element[index]);
+  left.addEventListener('click', function(evt) {
 
-    index--;
+    indexBack--;
+    console.log(indexBack);
+    console.log(element[indexBack]);
+    var sumBlocks = Math.round((element[indexBack].offsetWidth + element[indexBack - 1].offsetWidth)/2);
+    console.log(sumBlocks);
+    console.log(wrapperWidth);
+    var delta = wrapperWidth + sumBlocks;
+    console.log(delta);
+    wrapperWidth = wrapperWidth + element[indexBack].offsetWidth;
 
-  }
+    console.log(wrapperWidth);
+    console.log(element[indexBack]);
+    for(var j = element.length-1; j >= 0; j--) {
+      element[j].style.transform = `translateX(${delta}px)`;
+    }
+    element[indexBack+1].style.visibility = 'hidden';
+    element[indexBack-1].style.visibility = 'visible';
+
+
 });
 
   container.style.transition = `ease ${speedAnimation}ms`;
 };
 
-getContainer('.wrapper', '.left', '.right', 800);
+getContainer('.wrapper', '.left', '.right', 300);
