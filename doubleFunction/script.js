@@ -12,7 +12,7 @@ var getContainer = function(selectorContainer, buttonLeft, buttonRight, speedAni
   var index = 0;
   //под индексом 0 - первый элемент
 
-  var wrapperWidth = 771;
+  var wrapperWidth = wrapper.offsetWidth/2;
   var left = document.querySelector(buttonLeft);
   var right = document.querySelector(buttonRight);
 
