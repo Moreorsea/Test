@@ -17,17 +17,13 @@ class Slide {
     //расчет половины ширины видимой части браузера
     var wrapperWidth = this.container.offsetWidth/2;
     console.log(wrapperWidth);
-
     for(var i = 0; i < elements.length; i++) {
       elements[i].style.transform = `translateX(668px)`;
-    }
+   }
 
-  this.right.addEventListener('click', function() {
+  this.right.addEventListener('click', this.slide
     if(index < 6) {
-
-      console.log(elements[index]);
       var secondSum = (elements[index+1].offsetWidth + elements[index+2].offsetWidth)/2;
-      console.log(secondSum);
       wrapperWidth = wrapperWidth - secondSum;
       for(var i = 0; i < elements.length; i++) {
         elements[i].style.transform = `translateX(${wrapperWidth}px)`;
@@ -40,15 +36,15 @@ class Slide {
       elements[index+1].style.visibility = 'visible';
     }
     index++;
-  });
+    return element[index];
+  );
 
-  this.left.addEventListener('click', function() {
+  this.left.addEventListener('click', this.slide
     if(index > 0) {
-
-    console.log(elements[index]);
+    element[index +1].style.visible = 'hidden';
     var secondSum = (elements[index].offsetWidth + elements[index-1].offsetWidth)/2;
-    console.log(secondSum);
-    wrapperWidth = wrapperWidth + secondSum;
+    var wrapperWidth = this.container.offsetWidth/2;
+    wrapperWidth = wrapperWidth - secondSum;
     for(var i = elements.length - 1; i >= 0; i--) {
       elements[i].style.transform = `translateX(${wrapperWidth}px)`;
     }
@@ -58,9 +54,7 @@ class Slide {
     index === 0;
   }
   index--;
-  });
-
-  }
+  );
 }
 
-var slider = new Slide(left, right, wrapper);
+  var slider = new Slide(left, right, wrapper);
