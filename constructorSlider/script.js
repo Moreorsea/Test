@@ -59,3 +59,6 @@ class Slide {
 
     this.left.addEventListener('click', () => {this.slide(left);});
 }
+}
+
+var newSlide = new Slide('left', 'right', 'wrapper');
