@@ -2,7 +2,7 @@
 var wrapper = document.querySelector('.wrapper');
 var left = document.querySelector('.left');
 var right = document.querySelector('.right');
-var index = 0;
+
 
 class Slide {
   constructor(buttonLeft, buttonRight, container) {
@@ -15,6 +15,7 @@ class Slide {
     for(var i = 0; i < this.elements.length; i++) {
       this.elements[i].style.transform = `translateX(668px)`;
     }
+    var index = 0;
   }
   slide(side) {
     switch(side) {
@@ -34,6 +35,7 @@ class Slide {
           }
         index--;
       };
+      break;
       case 'right': {
         if(index < 6) {
           var secondSum = (elements[index+1].offsetWidth + elements[index+2].offsetWidth)/2;
@@ -50,6 +52,7 @@ class Slide {
         }
         index++;
       };
+      break;
       default: return;
     }
     this.right.addEventListener('click', () => {this.slide(right);});
