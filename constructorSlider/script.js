@@ -11,11 +11,15 @@ class Slide {
     this.container = wrapper;
     this.elements = this.container.children;
     //расчет половины ширины видимой части браузера
-    var wrapperWidth = this.container.offsetWidth/2;
+    this.wrapperWidth = this.container.offsetWidth/2;
     for(var i = 0; i < this.elements.length; i++) {
       this.elements[i].style.transform = `translateX(668px)`;
     }
     this.index = 0;
+    this.right.addEventListener('click', () => {this.slide('right');});
+
+    this.left.addEventListener('click', () => {this.slide('left');});
+    console.log(this.index);
   }
   slide(side) {
     switch(side) {
@@ -23,10 +27,9 @@ class Slide {
         if(this.index > 0) {
           this.elements[this.index +1].style.visible = 'hidden';
           var secondSum = (this.elements[this.index].offsetWidth + this.elements[this.index-1].offsetWidth)/2;
-          var wrapperWidth = this.container.offsetWidth/2;
-          wrapperWidth = wrapperWidth - secondSum;
+          this.wrapperWidth = this.wrapperWidth + secondSum;
           for(var i = this.elements.length - 1; i >= 0; i--) {
-            this.elements[i].style.transform = `translateX(${wrapperWidth}px)`;
+            this.elements[i].style.transform = `translateX(${this.wrapperWidth}px)`;
           }
           this.elements[this.index+1].style.visibility = 'hidden';
           this.elements[this.index-1].style.visibility = 'visible';
@@ -34,14 +37,19 @@ class Slide {
             this.index === 0;
           }
         this.index--;
+        break;
       };
-      break;
+      //break;
       case 'right': {
         if(this.index < 6) {
+          console.log(this.index); 
+          console.log(this.elements[this.index]);
           var secondSum = (this.elements[this.index+1].offsetWidth + this.elements[this.index+2].offsetWidth)/2;
-          wrapperWidth = wrapperWidth - secondSum;
+          console.log(secondSum);
+          this.wrapperWidth = this.wrapperWidth - secondSum;
+          console.log(this.wrapperWidth);
           for(var i = 0; i < this.elements.length; i++) {
-            this.elements[i].style.transform = `translateX(${wrapperWidth}px)`;
+            this.elements[i].style.transform = `translateX(${this.wrapperWidth}px)`;
           }
           this.elements[this.index].style.visibility = 'hidden';
           this.elements[this.index+2].style.visibility = 'visible';
@@ -51,14 +59,12 @@ class Slide {
           this.elements[this.index+1].style.visibility = 'visible';
         }
         this.index++;
+        break;
       };
-      break;
+      //break;
       default: return;
     }
-    this.right.addEventListener('click', () => {this.slide(right);});
-
-    this.left.addEventListener('click', () => {this.slide(left);});
-}
+  }
 }
 
 var newSlide = new Slide(left, right, wrapper);
