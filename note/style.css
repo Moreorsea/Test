@@ -1,0 +1,43 @@
+.note-list {
+    list-style: none;
+}
+
+.note-list__item {
+    width: 400px;
+    border: 2px dotted #bbbbbb;
+    background-color: lightblue;
+    font-family: sans-serif;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.note-list__item--checked {
+    background-color: lightgreen;
+}
+
+.note-list__item-name {
+    margin: 0;
+    padding: 5px;
+}
+
+.note-list__item-wrapper-text {
+    display: flex;
+}
+
+.note-list__item-work {
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    font-weight: bold;
+}
+
+.note-list__item-done {
+    font-size: 12px;
+    position: absolute;
+    display: none;
+    top: -5px;
+    right: 5px;
+    font-weight: bold;
+}
