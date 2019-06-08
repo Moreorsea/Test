@@ -78,16 +78,21 @@ class List {
     //отсортировать список
     constructor(container){
      this.noteList = container;
-     this.newNote0 = new Note(noteList, 0);
-     this.newNote1 = new Note(noteList, 1);
-     this.newNote2 = new Note(noteList, 2);
-     this.newNote3 = new Note(noteList, 3);
+     //this.newNote0 = new Note(noteList, 0);
+     //this.newNote1 = new Note(noteList, 1);
+     //this.newNote2 = new Note(noteList, 2);
+     //this.newNote3 = new Note(noteList, 3);
+     this.arrNote = [new Note(noteList, 0), new Note(noteList, 1), new Note(noteList, 2), new Note(noteList, 3)];
+     console.log(this.arrNote);
      this.createList();
     }
     createList (){
       console.log(this.noteList.children);
-
-
+      var elements = document.querySelectorAll('.note-list__item');
+      console.log(elements);
+      
+      console.log(this.arrNote[2]);
+      var checkbox = noteList.querySelector('.note-list__item-input');
     }
 }
 
