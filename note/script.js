@@ -30,7 +30,7 @@ class Note {
                 checked: 'В работе'
               }
           ];
-          console.log(this.noteElements[1]);
+          //console.log(this.noteElements[1]);
           this.number = number;
           this.createNote(number);
     }
@@ -43,7 +43,6 @@ class Note {
        //скопировать шаблон, чтобы получить пустую разметку заметки
        var element = listItem.cloneNode(true);
        console.log(element);
-       //this.noteList.appendChild(element);
 
        //заполнить заметку
        element.querySelector('.note-list__item-name').innerHTML = this.noteElements[this.number].noteName;
@@ -71,21 +70,19 @@ class List {
     constructor(container){
      this.noteList = container;
      this.arrNote = [new Note(noteList, 0), new Note(noteList, 1), new Note(noteList, 2), new Note(noteList, 3)];
-     console.log(this.arrNote);
      this.createList();
     }
     createList (){
-      //console.log(this.noteList.children);
       var elements = document.querySelectorAll('.note-list__item');
-      console.log(elements);
-      
-      console.log(this.arrNote[2]);
-      //var checkbox = elements.querySelector('.note-list__item-input');
-      //console.log(checkbox);
-      noteList.addEventListener('click', function(evt){
-         console.log('Выводится');
-         var element = evt.target;
-         
+
+      noteList.addEventListener('click', function(evt){  
+         var currentElement = evt.target;
+         console.log(currentElement);
+          if(currentElement.checked === true) {
+            console.log('Выводится');
+         } else {
+           console.log('Очень жаль');
+         }    
       });
     }
 }
