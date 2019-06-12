@@ -74,12 +74,22 @@ class List {
     }
     createList (){
       var elements = document.querySelectorAll('.note-list__item');
+      console.log(this.arrNote[2].noteList);
 
-      noteList.addEventListener('click', function(evt){  
+      noteList.addEventListener('click', (evt) => {  
          var currentElement = evt.target;
          console.log(currentElement);
           if(currentElement.checked === true) {
             console.log('Выводится');
+            console.log(elements[1]);
+            console.log(this.arrNote);
+            console.log(this.arrNote[3]);
+            var time = this.arrNote[3];
+            this.arrNote[3] = currentElement;
+            currentElement = time;
+            console.log(this.arrNote);
+            
+
          } else {
            console.log('Очень жаль');
          }    
