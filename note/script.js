@@ -32,6 +32,7 @@ class Note {
           ];
           //console.log(this.noteElements[1]);
           this.number = number;
+          this.checked = this.noteElements[this.number].checked;
           this.createNote(number);
     }
     createNote(){
@@ -42,22 +43,27 @@ class Note {
  
        //скопировать шаблон, чтобы получить пустую разметку заметки
        var element = listItem.cloneNode(true);
-       console.log(element);
 
        //заполнить заметку
        element.querySelector('.note-list__item-name').innerHTML = this.noteElements[this.number].noteName;
        element.querySelector('.note-list__item-text').innerHTML = this.noteElements[this.number].text;
-       var itemWork =  element.querySelector('.note-list__item-work');
-       itemWork.innerHTML = this.noteElements[this.number].checked;
+       element.querySelector('.note-list__item-work').innerHTML = this.noteElements[this.number].checked;
+       //this.noteElements[this.number].checked = 'В работе';
        var checkbox = element.querySelector('.note-list__item-input');
+       console.log(this.checked);
+
 
        //реакция на выбор заметки
-       checkbox.addEventListener('change', function () {
+       checkbox.addEventListener('change', () => {
         element.classList.toggle('note-list__item--checked');
         if(element.classList.toggle('note-list_item--checked') === true) {
-            itemWork.innerHTML = 'Сделано';
+            element.querySelector('.note-list__item-work').innerHTML = 'Сделано';
+            this.noteElements[this.number].checked = 'Сделано';
+            console.log(this.noteElements[this.number].checked);
         } else {
-            itemWork.innerHTML = 'В работе';
+            element.querySelector('.note-list__item-work').innerHTML = 'В работе';
+            this.noteElements[this.number].checked = 'В работе';
+            console.log(this.noteElements[this.number].checked);
         }
     });
     this.noteList.appendChild(element);
@@ -70,29 +76,20 @@ class List {
     constructor(container){
      this.noteList = container;
      this.arrNote = [new Note(noteList, 0), new Note(noteList, 1), new Note(noteList, 2), new Note(noteList, 3)];
+     console.log(this.arrNote);
      this.createList();
     }
     createList (){
       var elements = document.querySelectorAll('.note-list__item');
-      console.log(this.arrNote[2].noteList);
+      console.log(this.arrNote[2].checked);
 
       noteList.addEventListener('click', (evt) => {  
-         var currentElement = evt.target;
-         console.log(currentElement);
-          if(currentElement.checked === true) {
-            console.log('Выводится');
-            console.log(elements[1]);
-            console.log(this.arrNote);
-            console.log(this.arrNote[3]);
-            var time = this.arrNote[3];
-            this.arrNote[3] = currentElement;
-            currentElement = time;
-            console.log(this.arrNote);
-            
-
+         if(this.arrNote[0].checked === 'В работе') {
+         console.log('Выводится');
+         console.log(this.arrNote);
          } else {
-           console.log('Очень жаль');
-         }    
+           console.log('Не выводится');
+         }
       });
     }
 }
