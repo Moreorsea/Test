@@ -33,6 +33,7 @@ class Note {
           //console.log(this.noteElements[1]);
           this.number = number;
           this.checked = this.noteElements[this.number].checked;
+          console.log(this.checked);
           this.createNote(number);
     }
     createNote(){
@@ -84,12 +85,13 @@ class List {
       console.log(this.arrNote[2].checked);
 
       noteList.addEventListener('click', (evt) => {  
-         if(this.arrNote[0].checked === 'В работе') {
-         console.log('Выводится');
-         console.log(this.arrNote);
-         } else {
-           console.log('Не выводится');
-         }
+        var target = evt.target;
+        var currentElement = target.offsetParent;
+        console.log(currentElement);
+           console.log(this.arrNote[0].checked);
+           console.log(this.arrNote[1].checked);
+           console.log(this.arrNote[2].checked);
+           console.log(this.arrNote[3].checked);
       });
     }
 }
