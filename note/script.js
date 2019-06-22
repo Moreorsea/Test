@@ -1,15 +1,16 @@
 'use strict';
 
-var noteList = document.querySelector('.note-list'); //обложка
+let noteList = document.querySelector('.note-list'); //обложка
 
 
 class Note {
     //создаю заметку
     //меняю состояние заметки
-    constructor (container, number) {
-        this.noteList = container;
-        this.number = number;
-        this.createNote(number);
+    constructor (info) {
+        this.elementInfo = info;
+        this.checked = info.checked;
+        //this.createNote(number);
+        //this.noteItemInfo = вытащеный элемент из массива this.noteElements[this.number];
     }
     createNote(){
     //создать HTML-разметку
@@ -20,10 +21,12 @@ class Note {
     //скопировать шаблон, чтобы получить пустую разметку заметки
     var elementItem = listItem.cloneNode(true);
     console.log(elementItem);
-    noteList.appendChild(elementItem);
 
-    elementItem.addEventListener('click', () => {
+
+    elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
       console.log('Событие отрабатывает');
+      this.checked = !this.checked;
+
     });
       }
 }
@@ -56,17 +59,27 @@ class List {
         }
     ];
      this.createList();
+     this.renderList();
     }
     createList (){
       this.arrNote = [];
-      
-      var i = 0;
-        console.log(this.arrNote);
-        this.noteElements.forEach(() => {
-          var newElement = new Note().createNote();
-          this.arrNote[i] = newElement; 
+
+        //console.log(this.arrNote);
+        this.noteElements.forEach((noteElement, index) => {
+          //var newElement = new Note(noteList[i], i).createNote(i);
+          var newElement = new Note(noteElement).createNote();
+          console.log(newElement);
+          this.arrNote[index] = newElement; 
         })       
         console.log(this.arrNote);
+    }
+
+    renderList (){
+      this.container.innerHTML = '';
+
+      this.arrNote.forEach((note) => {
+        this.container.appendChild(note);
+      });
     }
 }
 
