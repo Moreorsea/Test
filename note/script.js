@@ -9,8 +9,7 @@ class Note {
     constructor (info) {
         this.elementInfo = info;
         this.checked = info.checked;
-        //this.createNote(number);
-        //this.noteItemInfo = вытащеный элемент из массива this.noteElements[this.number];
+
     }
     createNote(){
     //создать HTML-разметку
@@ -20,14 +19,26 @@ class Note {
     
     //скопировать шаблон, чтобы получить пустую разметку заметки
     var elementItem = listItem.cloneNode(true);
-    console.log(elementItem);
-
+    noteList.appendChild(elementItem);
+    
 
     elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
-      console.log('Событие отрабатывает');
       this.checked = !this.checked;
-
+      if(this.checked === true) {
+        elementItem.querySelector('.note-list__item-work').innerHTML = 'Сделано';
+        elementItem.classList.add('note-list__item--checked');
+        var currentElement = elementItem;
+        noteList.removeChild(elementItem);
+        noteList.appendChild(currentElement);
+      } else {
+        elementItem.querySelector('.note-list__item-work').innerHTML = 'В работе';
+        elementItem.classList.remove('note-list__item--checked');
+        var currentElement = elementItem;
+        noteList.removeChild(elementItem);
+        noteList.insertBefore(currentElement, noteList.firstChild);
+      }
     });
+    return elementItem;
       }
 }
 
@@ -35,7 +46,6 @@ class List {
     //сформировать список
     constructor(container){
      this.noteList = container;
-     //this.arrNote = [new Note(noteList, 0), new Note(noteList, 1), new Note(noteList, 2), new Note(noteList, 3)];
      this.noteElements = [
       {
           noteName: 'Заметка 1',
@@ -64,21 +74,21 @@ class List {
     createList (){
       this.arrNote = [];
 
-        //console.log(this.arrNote);
         this.noteElements.forEach((noteElement, index) => {
-          //var newElement = new Note(noteList[i], i).createNote(i);
-          var newElement = new Note(noteElement).createNote();
+          var newElement = new Note(noteElement).createNote(index);
+          newElement.querySelector('.note-list__item-name').innerHTML = this.noteElements[index].noteName;
+          newElement.querySelector('.note-list__item-text').innerHTML = this.noteElements[index].text;
+          newElement.querySelector('.note-list__item-work').innerHTML = 'В работе';
           console.log(newElement);
           this.arrNote[index] = newElement; 
         })       
         console.log(this.arrNote);
     }
-
     renderList (){
-      this.container.innerHTML = '';
+      this.noteList.innerHTML = '';
 
       this.arrNote.forEach((note) => {
-        this.container.appendChild(note);
+        this.noteList.appendChild(note);
       });
     }
 }
