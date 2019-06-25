@@ -94,11 +94,28 @@
   height: 500px;
   background-color: rgba(255, 255, 255, 0.7);
   top: 45px;
+  right: -148px;
+  /*display: block;*/
 }
 
 @media (min-width: 835px) {
-  .main-nav--closed .main-nav__list {
+  /*.main-nav--closed {
     display: none;
+  }*/
+  .main-nav--closed .main-nav__list {
+    animation-name: top;
+    animation-duration: 1000ms;
+    //top: 0px;
+  }
+}
+
+@keyframes top {
+  from {
+    top: 45px;
+  }
+
+  to {
+    top: 0px;
   }
 }
 
@@ -109,7 +126,7 @@
   }
 
   to {
-    transform: translateX(-10px);
+    transform: translateX(0px);
   }
 
 }
@@ -143,6 +160,19 @@
     display: flex;
     justify-content: space-around;
     align-items: baseline;
+    animation-name: to-top;
+    animation-duration: 1000ms;
+    top: 45px;
+  }
+}
+
+@keyframes to-top {
+  from {
+    top: 0px;
+  }
+
+  to {
+    top: 45px;
   }
 }
 
