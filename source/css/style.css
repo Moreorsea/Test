@@ -884,7 +884,7 @@ textarea {
           flex-direction: column;
   position: absolute;
   width: 140px;
-  height: 500px;
+  height: 290px;
   background-color: rgba(255, 255, 255, 0.7);
   top: 45px;
   right: -148px;
@@ -964,7 +964,7 @@ textarea {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 140px;
-  height: 500px;
+  height: 290px;
   background-color: rgba(255, 255, 255, 0.7);
   top: 45px;
   right: -20px;
