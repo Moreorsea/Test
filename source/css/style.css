@@ -851,6 +851,7 @@ textarea {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: none;
 }
 .main-nav__link {
   text-decoration: none;
@@ -877,6 +878,10 @@ textarea {
           animation-name: to-right;
   -webkit-animation-duration: 1000ms;
           animation-duration: 1000ms;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: absolute;
   width: 140px;
   height: 500px;
@@ -885,6 +890,11 @@ textarea {
   right: -148px;
 }
 @media (min-width: 835px) {
+  .main-nav__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .main-nav--closed .main-nav__list {
     -webkit-animation-name: top;
             animation-name: top;
@@ -902,6 +912,10 @@ textarea {
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 @-webkit-keyframes top {
@@ -942,6 +956,13 @@ textarea {
 }
 .main-nav--opened .main-nav__list {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 140px;
   height: 500px;
   background-color: rgba(255, 255, 255, 0.7);
@@ -978,6 +999,10 @@ textarea {
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
@@ -1005,6 +1030,11 @@ textarea {
   }
 }
 @media (min-width: 1280px) {
+  .main-nav__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .main-nav--closed .main-nav__list {
     display: -webkit-box;
     display: -ms-flexbox;

@@ -14,7 +14,7 @@
       </a>
       <nav class="main-nav main-nav--closed">
         <button class="main-nav__toggle" type="button">
-          <img class="main-nav__toggle--open" src="img/Group 91.1.png" alt="открыть меню"> 
+          <img class="main-nav__toggle--open" src="img/Group 91.1.png" alt="открыть меню">
           <img class="main-nav__toggle--close main-nav__toggle--close-inactive" src="img/Group 93.png" alt="закрыть меню">
         </button>
         <ul class="main-nav__list">
@@ -149,19 +149,34 @@
       var navToggle = document.querySelector('.main-nav__toggle');
       var navOpen = navToggle.querySelector('.main-nav__toggle--open');
       var navClose = navToggle.querySelector('.main-nav__toggle--close');
+      var navList = document.querySelector('.main-nav__list');
       navToggle.addEventListener('click', function() {
-        if(navMain.classList.contains('main-nav--closed')) { // если меню закрыто и кнопка-бургер видна
-         navOpen.classList.add('main-nav__toggle--open-inactive'); //инактивирую бургер
-         navClose.classList.remove('main-nav__toggle--close-inactive'); //удаляю класс инактивации кнопки-креста
-         navMain.classList.remove('main-nav--closed'); //удаляю у меню кнопку-бургер
-         navMain.classList.add('main-nav--opened'); //добавляю меню кнопку-крест
-        } else { //если видна кнопка-крест
-          navOpen.classList.remove('main-nav__toggle--open-inactive'); //удаляю класс инактивации бургера
-          navClose.classList.add('main-nav__toggle--close-inactive'); //инкативирую кнопку-крест
 
-          
-          navMain.classList.remove('main-nav--opened'); //удаляю кнопку-крест
-          navMain.classList.add('main-nav--closed'); //добавляю меню кнопку-бургер
+        //navOpen.classList.toggle('.main-nav__toggle--open-inactive');
+        //navClose.classList.remove('.main-nav__toggle--close-inactive');
+        //navClose.display = 'block';
+
+        if(navMain.classList.toggle('main-nav--closed') === true) { // если меню закрыто и кнопка-бургер видна
+          console.log('Открыто');
+
+         //navOpen.classList.remove('main-nav__toggle--open-inactive');
+         //navClose.classList.add('main-nav__toggle--close-inactive');
+         //navList.style.display = 'flex';
+         navOpen.classList.remove('main-nav__toggle--open-inactive'); //удаляю класс инактивации бургера
+         navClose.classList.add('main-nav__toggle--close-inactive'); //инкативирую кнопку-крест
+         navMain.classList.remove('main-nav--opened'); //удаляю кнопку-крест
+         navMain.classList.add('main-nav--closed'); //добавляю меню кнопку-бургер
+        } else { //если видна кнопка-крест
+          console.log('Закрыто');
+
+
+
+          navOpen.classList.add('main-nav__toggle--open-inactive'); //инактивирую бургер
+          navClose.classList.remove('main-nav__toggle--close-inactive'); //удаляю класс инактивации кнопки-креста
+          navMain.classList.remove('main-nav--closed'); //удаляю у меню кнопку-бургер
+          navMain.classList.add('main-nav--opened'); //добавляю меню кнопку-крест
+          navList.style.display = 'flex';
+
         }
       });
     </script>
