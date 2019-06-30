@@ -29,7 +29,7 @@
       var interval = setInterval(function() {
           window.scrollTo(0, window.scrollY + step);
           
-          if (Math.abs(window.scrollY - coord) < 20 ) {
+          if (Math.abs(window.scrollY - coord) < 70 ) {
               window.scrollTo(0, coord);
               clearInterval(interval);
           }

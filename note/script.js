@@ -15,14 +15,18 @@ class Note {
     //создать HTML-разметку
     var listItem = document.createElement('li');
     listItem.classList.add('note-list__item');
+    listItem.setAttribute('id', '');
     listItem.innerHTML = '<label class="note-list__item-wrapper"><div class="note-list__item-wrapper-text"><p class="note-list__item-name"></p><p class="note-list__item-work"></p><p class="note-list__item-done"></p></div><input type="checkbox" class="note-list__item-input"><span class="note-list__item-text"></span></label>';
     
     //скопировать шаблон, чтобы получить пустую разметку заметки
     var elementItem = listItem.cloneNode(true);
     noteList.appendChild(elementItem);
     
+    
 
     elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
+      //var elementId = elementItem.getAttribute('id');
+      //console.log(elementId);
       this.checked = !this.checked;
       if(this.checked === true) {
         elementItem.querySelector('.note-list__item-work').innerHTML = 'Сделано';
@@ -33,11 +37,14 @@ class Note {
       } else {
         elementItem.querySelector('.note-list__item-work').innerHTML = 'В работе';
         elementItem.classList.remove('note-list__item--checked');
-        var currentElement = elementItem;
-        noteList.removeChild(elementItem);
-        noteList.insertBefore(currentElement, noteList.firstChild);
+        //var currentElement = elementItem;
+        //noteList.removeChild(elementItem);
+        //noteList.insertBefore(currentElement, noteList.firstChild);
+        //console.log(elementItem.getAttribute('id'));
+        
       }
     });
+    
     return elementItem;
       }
 }
@@ -79,16 +86,43 @@ class List {
           newElement.querySelector('.note-list__item-name').innerHTML = this.noteElements[index].noteName;
           newElement.querySelector('.note-list__item-text').innerHTML = this.noteElements[index].text;
           newElement.querySelector('.note-list__item-work').innerHTML = 'В работе';
-          console.log(newElement);
+          var difElement = newElement.querySelector('.note-list__item-wrapper');
+          difElement.parentNode.setAttribute('id', index);
           this.arrNote[index] = newElement; 
         })       
         console.log(this.arrNote);
     }
     renderList (){
       this.noteList.innerHTML = '';
-
+      var elementChecked = [];
+      var elementUnchecked = this.arrNote;
       this.arrNote.forEach((note) => {
         this.noteList.appendChild(note);
+        //вывод отрисовываемых элементов, они не чекнуты
+        console.log(note);
+        
+        //массив для чекнутых элементов
+        
+        var itemInput = note.querySelector('.note-list__item-input');
+        note.addEventListener('click', (evt) => {
+          console.log('Событие отрабатывает');
+          var currentTarget = evt.currentTarget;
+          var baseTarget = currentTarget;
+          var targetId = currentTarget.getAttribute('id');
+          console.log(targetId);
+          if(itemInput.checked === true) {
+            
+            elementUnchecked.splice(currentTarget.getAttribute('id'), 1);
+   
+              elementChecked.push(baseTarget);
+
+
+            console.log(elementUnchecked);
+            console.log(elementChecked);
+          }
+        });
+        //});
+
       });
     }
 }

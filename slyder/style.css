@@ -4,7 +4,6 @@ body {
 }
 
 .wrapper {
-  overflow: hidden;
   width: 500vw;
   display: flex;
   height: 300px;
