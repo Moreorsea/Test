@@ -90,40 +90,48 @@ class List {
           difElement.parentNode.setAttribute('id', index);
           this.arrNote[index] = newElement; 
         })       
-        console.log(this.arrNote);
+
+        var elementChecked = [];
+        var elementUnchecked = this.arrNote;
+
+        for(var index = 0; index < elementUnchecked.length; index++) {
+          this.arrNote[index].addEventListener('click', (evt) => {
+            var currentTarget = evt.currentTarget;
+            var itemInput = currentTarget.querySelector('.note-list__item-input');
+            if(itemInput.checked === true) { //отрабатывает более-менее корректно
+              console.log(currentTarget);
+              //elementUnchecked.splice(currentTarget.getAttribute('id'), 1);
+              elementUnchecked.splice(currentTarget, 1);
+              elementChecked.push(currentTarget);
+              console.log(elementUnchecked);
+              console.log(elementChecked);
+              return elementUnchecked;
+              
+            } else {
+              console.log(elementUnchecked);
+              console.log(currentTarget);
+              elementUnchecked.push(currentTarget);
+              console.log(elementUnchecked);
+            }
+          });
+        }       
     }
+  
     renderList (){
       this.noteList.innerHTML = '';
-      var elementChecked = [];
-      var elementUnchecked = this.arrNote;
+      //console.log(elementUnchecked);
+      
       this.arrNote.forEach((note) => {
         this.noteList.appendChild(note);
         //вывод отрисовываемых элементов, они не чекнуты
-        console.log(note);
+        //console.log(note);
         
         //массив для чекнутых элементов
         
-        var itemInput = note.querySelector('.note-list__item-input');
-        note.addEventListener('click', (evt) => {
-          console.log('Событие отрабатывает');
-          var currentTarget = evt.currentTarget;
-          var baseTarget = currentTarget;
-          var targetId = currentTarget.getAttribute('id');
-          console.log(targetId);
-          if(itemInput.checked === true) {
-            
-            elementUnchecked.splice(currentTarget.getAttribute('id'), 1);
-   
-              elementChecked.push(baseTarget);
-
-
-            console.log(elementUnchecked);
-            console.log(elementChecked);
-          }
         });
         //});
 
-      });
+      //});
     }
 }
 
