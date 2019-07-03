@@ -24,12 +24,12 @@ class Note {
     
     
 
-    elementItem.querySelector('.note-list__item-input').addEventListener('click', (evt) => {
+    elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
       //var elementId = elementItem.getAttribute('id');
       //console.log(elementId);
       this.checked = !this.checked;
       console.log(this.checked);
-      transferNote();
+      transferNote(this);
       if(this.checked === true) {
         elementItem.querySelector('.note-list__item-work').innerHTML = 'Сделано';
         elementItem.classList.add('note-list__item--checked');
@@ -84,7 +84,7 @@ class List {
       this.arrNote = [];
 
         this.noteElements.forEach((noteElement, index) => {
-          let newElement = new Note(noteElement).createNote(() => {this.transferNote (newElement, this.arrNote);});         
+          let newElement = new Note(noteElement).createNote((element) => {this.transferNote (element, this.arrNote);});         
           newElement.querySelector('.note-list__item-name').innerHTML = this.noteElements[index].noteName;
           newElement.querySelector('.note-list__item-text').innerHTML = this.noteElements[index].text;
           newElement.querySelector('.note-list__item-work').innerHTML = 'В работе';
@@ -119,17 +119,12 @@ class List {
           });
         }   */    
     }
-    transferNote (note, array) {
+    transferNote (element, array) {
       //здесь будут перекидываться заметки
-      var listChecked = [];
+    var listChecked = [];
      var listUnchecked = array;
       console.log(listUnchecked);
-      //for(var i = 0; i < 4; i++) {
-        //console.log(listUnchecked[i]);
-        //if(listUnchecked[i].classList.toggle('note-list__item--checked')) {
-          console.log('Кликнули по элементу ' + note);
-        //}
-      //}
+      console.log('Кликнули по элементу ' + element);
      //var currentTarget = evt.currentTarget;
      // console.log(currentTarget);
 
