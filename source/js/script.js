@@ -1,6 +1,6 @@
 'use strict';
 
-var galleryImg = document.querySelectorAll('.gallery__img'); //получила всеэлементы коллекции
+var galleryImg = document.querySelectorAll('.gallery__img');
 var getContainer = document.querySelector('.gallery__container');
 var container = document.querySelector('.container');
 var popupBg = document.querySelector('.popup_bg');
@@ -23,7 +23,6 @@ var fadeIn = function (time, element, opacityMax) {
   for (var i = 0; i <= opacityMax;) {
     var opacity = opacityMin + (i + step);
    i = i + step;
-   //element.style.opacity = opacity;
    elementPopup.style.opacity = opacity;
    console.log(element);
    console.log(elementPopup);
@@ -31,7 +30,6 @@ var fadeIn = function (time, element, opacityMax) {
 };
 
 var fadeOut = function (time, element, opacityMax) {
-  //var element = document.querySelector('.popup');
   var element = document.querySelector('.popup_bg');
   var step = opacityMax/time;
   console.log(step);
@@ -40,7 +38,6 @@ var fadeOut = function (time, element, opacityMax) {
     var opacity = opacityMax - (i + step);
     console.log(opacity);
     element.style.opacity = opacity;
-    //elementPopup.style.opacity = opacity;
   }
 }
 
@@ -57,20 +54,15 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   element.classList.add('gallery__img--animation-visible');
 
 
-  fadeIn(1000, document.querySelector('.popup_bg'), 0.7);  //opacity 0.7
-  //fadeIn(1000, document.querySelector('.popup_img'), 1);
+  fadeIn(1000, document.querySelector('.popup_bg'), 0.7);
 
   var popupClose = function () {
     container.addEventListener('click', function (){
       element.classList.remove('gallery__img--animation-visible');
       element.classList.add('gallery__img--animation-hidden');
-      //container.classList.remove('popup_bg');
-      //element.classList.remove('popup_img');
-
-      //popup.removeChild(element);
+  
       var removeChild = function () {
         popup.removeChild(element);
-
         element.classList.remove('popup_img');
       };
       setTimeout(removeChild, 600);
@@ -85,9 +77,6 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
 
   };
   popupClose();
-  //popup.removeChild(element);
-  //fadeOut(2000, document.querySelector('.popup'), 1);
-
   });
 });
 
@@ -97,7 +86,6 @@ var button = document.querySelector('.promo__button');
 var gallery = document.querySelector('.gallery');
 
 button.addEventListener('click', function(evt) {
-  //window.scrollTo(0, 1400);
   window.scrollTo({
     top: 10000,
     behavior: 'smooth'
@@ -111,7 +99,6 @@ var buttonBottom = document.querySelector('.button-bottom__img');
 console.log(buttonBottom);
 
 buttonBottom.addEventListener('click', function(e) {
-  //window.scrollTo(1500, 0);
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
