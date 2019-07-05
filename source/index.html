@@ -151,32 +151,17 @@
       var navClose = navToggle.querySelector('.main-nav__toggle--close');
       var navList = document.querySelector('.main-nav__list');
       navToggle.addEventListener('click', function() {
-
-        //navOpen.classList.toggle('.main-nav__toggle--open-inactive');
-        //navClose.classList.remove('.main-nav__toggle--close-inactive');
-        //navClose.display = 'block';
-
-        if(navMain.classList.toggle('main-nav--closed') === true) { // если меню закрыто и кнопка-бургер видна
-          console.log('Открыто');
-
-         //navOpen.classList.remove('main-nav__toggle--open-inactive');
-         //navClose.classList.add('main-nav__toggle--close-inactive');
-         //navList.style.display = 'flex';
-         navOpen.classList.remove('main-nav__toggle--open-inactive'); //удаляю класс инактивации бургера
-         navClose.classList.add('main-nav__toggle--close-inactive'); //инкативирую кнопку-крест
-         navMain.classList.remove('main-nav--opened'); //удаляю кнопку-крест
-         navMain.classList.add('main-nav--closed'); //добавляю меню кнопку-бургер
-        } else { //если видна кнопка-крест
-          console.log('Закрыто');
-
-
-
-          navOpen.classList.add('main-nav__toggle--open-inactive'); //инактивирую бургер
-          navClose.classList.remove('main-nav__toggle--close-inactive'); //удаляю класс инактивации кнопки-креста
-          navMain.classList.remove('main-nav--closed'); //удаляю у меню кнопку-бургер
-          navMain.classList.add('main-nav--opened'); //добавляю меню кнопку-крест
+        if(navMain.classList.toggle('main-nav--closed') === true) {
+         navOpen.classList.remove('main-nav__toggle--open-inactive');
+         navClose.classList.add('main-nav__toggle--close-inactive');
+         navMain.classList.remove('main-nav--opened');
+         navMain.classList.add('main-nav--closed');
+        } else {
+          navOpen.classList.add('main-nav__toggle--open-inactive');
+          navClose.classList.remove('main-nav__toggle--close-inactive');
+          navMain.classList.remove('main-nav--closed');
+          navMain.classList.add('main-nav--opened');
           navList.style.display = 'flex';
-
         }
       });
     </script>
