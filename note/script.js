@@ -28,9 +28,9 @@ class Note {
       //var elementId = elementItem.getAttribute('id');
       //console.log(elementId);
       this.checked = !this.checked;
-      console.log(this.checked);
+      //console.log(this.checked);
       transferNote(this);
-      if(this.checked === true) {
+      if(this.checked) {
         elementItem.querySelector('.note-list__item-work').innerHTML = 'Сделано';
         elementItem.classList.add('note-list__item--checked');
         var currentElement = elementItem;
@@ -55,6 +55,9 @@ class List {
     //сформировать список
     constructor(container){
      this.noteList = container;
+     this.listChecked = [];
+     this.listUnchecked = [];
+     this.newArray = [];
      this.noteElements = [
       {
           noteName: 'Заметка 1',
@@ -82,7 +85,6 @@ class List {
     }
     createList (){
       this.arrNote = [];
-
         this.noteElements.forEach((noteElement, index) => {
           let newElement = new Note(noteElement).createNote((element) => {this.transferNote (element, this.arrNote);});         
           newElement.querySelector('.note-list__item-name').innerHTML = this.noteElements[index].noteName;
@@ -91,60 +93,54 @@ class List {
           var difElement = newElement.querySelector('.note-list__item-wrapper');
           difElement.parentNode.setAttribute('id', index);
           this.arrNote[index] = newElement; 
-        })   
-            
-
-        /*var elementChecked = [];
-        var elementUnchecked = this.arrNote;
-
-        for(var index = 0; index < elementUnchecked.length; index++) {
-          this.arrNote[index].addEventListener('click', (evt) => {
-            var currentTarget = evt.currentTarget;
-            var itemInput = currentTarget.querySelector('.note-list__item-input');
-            if(itemInput.checked === true) { //отрабатывает более-менее корректно
-              console.log(currentTarget);
-              //elementUnchecked.splice(currentTarget.getAttribute('id'), 1);
-              elementUnchecked.splice(currentTarget, 1);
-              elementChecked.push(currentTarget);
-              console.log(elementUnchecked);
-              console.log(elementChecked);
-              return elementUnchecked;
-              
-            } else {
-              console.log(elementUnchecked);
-              console.log(currentTarget);
-              elementUnchecked.push(currentTarget);
-              console.log(elementUnchecked);
-            }
-          });
-        }   */    
+          this.listUnchecked[index] = new Note(noteElement);
+          this.listUnchecked[index].elementInfo.id = index;
+          
+        })  
+        console.log(this.listUnchecked); //id присваиваются корректно
+ 
     }
-    transferNote (element, array) {
+    transferNote (element) {
       //здесь будут перекидываться заметки
-    var listChecked = [];
-     var listUnchecked = array;
-      console.log(listUnchecked);
-      console.log('Кликнули по элементу ' + element);
-     //var currentTarget = evt.currentTarget;
-     // console.log(currentTarget);
+      if(element.checked) {
+        //console.log(element.elementInfo.id);
+        var swap = element;
+        this.listChecked.push(element);
+        this.listUnchecked.splice(element.elementInfo.id, 1);
+        this.sortArray();
+      }
 
+      else {
+        this.listUnchecked.push(element);
+        this.listChecked.splice(element.elementInfo.id, 1);
+        this.sortArray();
+      }
+    }
+
+    sortArray () {
+      this.listChecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id);
+      //console.log(this.listUnchecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id));
+      console.log(this.listChecked);
+      //this.listUnchecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id);
+      console.log(this.listUnchecked);
+      
+      //this.newArray = this.listUnchecked.concat(this.listChecked);
+      //console.log(this.newArray);
+      //return this.newArray;
     }
   
     renderList (){
-      this.noteList.innerHTML = '';
-      //console.log(elementUnchecked);
-      
-      this.arrNote.forEach((note) => {
-        this.noteList.appendChild(note);
-        //вывод отрисовываемых элементов, они не чекнуты
-        //console.log(note);
-        
-        //массив для чекнутых элементов
-        
-        });
-        //});
+      //this.noteList.innerHTML = '';
+      console.log(this.listUnchecked);
 
-      //});
+      //this.newArray.forEach((note) => {
+        //this.noteList.appendChild(note);
+     // });
+      
+     // this.arrNote.forEach((note) => {
+       // this.noteList.appendChild(note);
+
+        //});
     }
 }
 
