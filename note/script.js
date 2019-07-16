@@ -25,25 +25,25 @@ class Note {
     
 
     elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
-      //var elementId = elementItem.getAttribute('id');
-      //console.log(elementId);
       this.checked = !this.checked;
-      //console.log(this.checked);
       transferNote(this);
+      function removeElement (element) {
+        noteList.removeChild(element);
+      };
       if(this.checked) {
         elementItem.querySelector('.note-list__item-work').innerHTML = 'Сделано';
         elementItem.classList.add('note-list__item--checked');
         var currentElement = elementItem;
-        noteList.removeChild(elementItem);
+        //noteList.removeChild(elementItem);
+        removeElement(elementItem);
         noteList.appendChild(currentElement);
       } else {
         elementItem.querySelector('.note-list__item-work').innerHTML = 'В работе';
         elementItem.classList.remove('note-list__item--checked');
-        //var currentElement = elementItem;
+        var currentElement = elementItem;
         //noteList.removeChild(elementItem);
-        //noteList.insertBefore(currentElement, noteList.firstChild);
-        //console.log(elementItem.getAttribute('id'));
-        
+        removeElement(elementItem);
+        noteList.insertBefore(currentElement, noteList.firstChild);
       }
     });
     
@@ -58,6 +58,7 @@ class List {
      this.listChecked = [];
      this.listUnchecked = [];
      this.newArray = [];
+     this.renderArray = [];
      this.noteElements = [
       {
           noteName: 'Заметка 1',
@@ -94,100 +95,64 @@ class List {
           difElement.parentNode.setAttribute('id', index);
           this.arrNote[index] = newElement; 
           this.listUnchecked[index] = new Note(noteElement);
-          this.listUnchecked[index].elementInfo.id = index;
-          
+          this.listUnchecked[index].elementInfo.id = index;  
         })  
-        console.log(this.listUnchecked); //id присваиваются корректно
- 
     }
+
     transferNote (element) {
       //здесь будут перекидываться заметки
-      if(element.checked) {
-        //console.log(element.elementInfo.id);
-        var elementId = element.elementInfo.id;
-
-        console.log(this.listChecked.length);
-        this.listChecked.push(element);
-        var listUnchecked = this.listUnchecked;
-        /*function getId (element, index, array){
-          console.log(listUnchecked);
-          //console.log('Вызов прошел');
-          //console.log(elementId);
-          console.log(array[index]);
-          if(elementId === array[index].elementInfo.id) {
-            console.log('Нужно удалить элемент ' + array[index].elementInfo.text);
-            //console.log(element);
-            //console.log(array[index]);
-            console.log(index);
-            listUnchecked.splice(index, 1);
-            console.log(listUnchecked);
-          }
-        };
-  
-        console.log(listUnchecked);
-        listUnchecked.find(getId);*/
- 
-        console.log(elementId);
-       /* this.listUnchecked.forEach((index) => {
-          console.log(this.listUnchecked[1].elementInfo.id);
-          if(elementId === this.listUnchecked[index].elementInfo.id) {
-            console.log('Это элемент ' + this.listUnchecked[index].elementInfo.text);
-          }
-        });*/
-        for(var i = 0; i < 4; i++) {
-          //console.log(listUnchecked[i].elementInfo.text);
-         // console.log(listUnchecked[1]);
-          if(elementId === this.listUnchecked[i].elementInfo.id) {
-            console.log(typeof elementId);
-            console.log(typeof this.listUnchecked[i].elementInfo.id);
-            console.log('Это элемент ' + this.listUnchecked[i].elementInfo.text + i);
-            this.listUnchecked.splice(i, 1);
-            console.log(this.listUnchecked);
+      var elementId = element.elementInfo.id;
+      function getList (array) {
+        for(var i = 0; i < array.length; i++) {
+          if(elementId === array[i].elementInfo.id) {
+            array.splice(i, 1);
           }
         }
+      };
+      
+      if(element.checked) {
+        this.listChecked.push(element);
+        console.log(this.listChecked);
+        getList(this.listUnchecked);
+        console.log(this.listUnchecked);
         if(this.listChecked.length === 4) {
           this.listUnchecked = [];
         }
-        console.log(this.listUnchecked);
         this.sortArray();
-      }
-
-      else {
-        this.listUnchecked.push(element);
-        console.log(this.listUnchecked);
-        if(this.listUnchecked.length === 4) {
-          this.listChecked = [];
+      }  else {
+          this.listUnchecked.push(element);
+          console.log(this.listUnchecked);
+          getList(this.listChecked);
+          console.log(this.listChecked);
+          if(this.listUnchecked.length === 4) {
+            this.listChecked = [];
+          }
+          this.sortArray();
         }
-        this.listChecked.splice(element.elementInfo.id, 1);
-        console.log(this.listChecked);
-        
-        this.sortArray();
-      }
     }
 
     sortArray () {
-     // this.listChecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id);
+      this.listChecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id);
       console.log(this.listChecked);
-      //this.listUnchecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id);
+      this.listUnchecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id);
       console.log(this.listUnchecked);
       
-      //this.newArray = this.listUnchecked.concat(this.listChecked);
-      //console.log(this.newArray);
+      this.newArray = this.listUnchecked.concat(this.listChecked);
+      console.log(this.newArray);
       //return this.newArray;
+      this.renderList();
     }
   
     renderList (){
       //this.noteList.innerHTML = '';
-      console.log(this.listUnchecked);
+      console.log(this.newArray);
 
-      //this.newArray.forEach((note) => {
-        //this.noteList.appendChild(note);
-     // });
-      
-     // this.arrNote.forEach((note) => {
-       // this.noteList.appendChild(note);
-
-        //});
+      this.newArray.forEach((note, index) => {
+        this.renderArray[index] = new Note(note);
+        this.noteList.appendChild(note);
+        //console.log(this.noteList);
+        console.log(this.renderArray);
+     });
     }
 }
 
