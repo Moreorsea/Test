@@ -9,10 +9,34 @@ class Note {
     constructor (info) {
         this.elementInfo = info;
         this.checked = info.checked;
+        /*this.noteElements = [
+          {
+              noteName: 'Заметка 1',
+              text: 'Ели мясо мужики',
+              checked: false
+            },
+            {
+              noteName: 'Заметка 2',
+              text: 'Пивом запивали',
+              checked: false
+            },
+            {
+              noteName: 'Заметка 3',
+              text: 'О чем конюх говорил',
+              checked: false
+            },
+            {
+              noteName: 'Заметка 4',
+              text: 'Они не понимали',
+              checked: false
+            }
+        ];*/
+        this.createNote();
 
     }
     createNote(transferNote){
     //создать HTML-разметку
+    console.log(this.elementInfo);
     var listItem = document.createElement('li');
     listItem.classList.add('note-list__item');
     listItem.setAttribute('id', '');
@@ -20,9 +44,12 @@ class Note {
     
     //скопировать шаблон, чтобы получить пустую разметку заметки
     var elementItem = listItem.cloneNode(true);
+   // console.log(elementItem);
     noteList.appendChild(elementItem);
     
-    
+    //заполнять заметки тут
+    console.log(elementItem);
+
 
     elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
       this.checked = !this.checked;
@@ -58,7 +85,7 @@ class List {
      this.listChecked = [];
      this.listUnchecked = [];
      this.newArray = [];
-     this.renderArray = [];
+     //this.renderArray = [];
      this.noteElements = [
       {
           noteName: 'Заметка 1',
@@ -82,10 +109,10 @@ class List {
         }
     ];
      this.createList();
-     this.renderList();
+     //this.renderList();
     }
     createList (){
-      this.arrNote = [];
+      /*this.arrNote = [];
         this.noteElements.forEach((noteElement, index) => {
           let newElement = new Note(noteElement).createNote((element) => {this.transferNote (element, this.arrNote);});         
           newElement.querySelector('.note-list__item-name').innerHTML = this.noteElements[index].noteName;
@@ -94,9 +121,9 @@ class List {
           var difElement = newElement.querySelector('.note-list__item-wrapper');
           difElement.parentNode.setAttribute('id', index);
           this.arrNote[index] = newElement; 
-          this.listUnchecked[index] = new Note(noteElement);
+         this.listUnchecked[index] = new Note(noteElement);
           this.listUnchecked[index].elementInfo.id = index;  
-        })  
+        })  */
     }
 
     transferNote (element) {
@@ -112,22 +139,23 @@ class List {
       
       if(element.checked) {
         this.listChecked.push(element);
-        console.log(this.listChecked);
+        //console.log(this.listChecked);
         getList(this.listUnchecked);
-        console.log(this.listUnchecked);
+        //console.log(this.listUnchecked);
         if(this.listChecked.length === 4) {
           this.listUnchecked = [];
         }
         this.sortArray();
       }  else {
           this.listUnchecked.push(element);
-          console.log(this.listUnchecked);
+          //console.log(this.listUnchecked);
           getList(this.listChecked);
-          console.log(this.listChecked);
+          //console.log(this.listChecked);
           if(this.listUnchecked.length === 4) {
             this.listChecked = [];
           }
           this.sortArray();
+          this.renderList();
         }
     }
 
@@ -140,19 +168,14 @@ class List {
       this.newArray = this.listUnchecked.concat(this.listChecked);
       console.log(this.newArray);
       //return this.newArray;
-      this.renderList();
+     // this.renderList();
     }
   
     renderList (){
       //this.noteList.innerHTML = '';
       console.log(this.newArray);
-
-      this.newArray.forEach((note, index) => {
-        this.renderArray[index] = new Note(note);
-        this.noteList.appendChild(note);
-        //console.log(this.noteList);
-        console.log(this.renderArray);
-     });
+      let newElement = new Note(this.noteElements[index]).createNote();
+      console.log(newElement);
     }
 }
 
