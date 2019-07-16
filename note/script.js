@@ -9,28 +9,6 @@ class Note {
     constructor (info) {
         this.elementInfo = info;
         this.checked = info.checked;
-        /*this.noteElements = [
-          {
-              noteName: 'Заметка 1',
-              text: 'Ели мясо мужики',
-              checked: false
-            },
-            {
-              noteName: 'Заметка 2',
-              text: 'Пивом запивали',
-              checked: false
-            },
-            {
-              noteName: 'Заметка 3',
-              text: 'О чем конюх говорил',
-              checked: false
-            },
-            {
-              noteName: 'Заметка 4',
-              text: 'Они не понимали',
-              checked: false
-            }
-        ];*/
         this.createNote();
 
     }
@@ -49,6 +27,11 @@ class Note {
     
     //заполнять заметки тут
     console.log(elementItem);
+    this.arrNote = [];
+    console.log(elementItem.querySelector('.note-list__item-name'));        
+    elementItem.querySelector('.note-list__item-name').innerHTML = this.elementInfo.noteName;
+    elementItem.querySelector('.note-list__item-text').innerHTML = this.elementInfo.text;
+    elementItem.querySelector('.note-list__item-work').innerHTML = 'В работе';
 
 
     elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
@@ -61,14 +44,12 @@ class Note {
         elementItem.querySelector('.note-list__item-work').innerHTML = 'Сделано';
         elementItem.classList.add('note-list__item--checked');
         var currentElement = elementItem;
-        //noteList.removeChild(elementItem);
         removeElement(elementItem);
         noteList.appendChild(currentElement);
       } else {
         elementItem.querySelector('.note-list__item-work').innerHTML = 'В работе';
         elementItem.classList.remove('note-list__item--checked');
         var currentElement = elementItem;
-        //noteList.removeChild(elementItem);
         removeElement(elementItem);
         noteList.insertBefore(currentElement, noteList.firstChild);
       }
@@ -85,6 +66,7 @@ class List {
      this.listChecked = [];
      this.listUnchecked = [];
      this.newArray = [];
+     this.index = 0;
      //this.renderArray = [];
      this.noteElements = [
       {
@@ -108,8 +90,8 @@ class List {
           checked: false
         }
     ];
-     this.createList();
-     //this.renderList();
+     //this.createList();
+     this.renderList();
     }
     createList (){
       /*this.arrNote = [];
@@ -155,7 +137,7 @@ class List {
             this.listChecked = [];
           }
           this.sortArray();
-          this.renderList();
+         // this.renderList();
         }
     }
 
@@ -174,8 +156,12 @@ class List {
     renderList (){
       //this.noteList.innerHTML = '';
       console.log(this.newArray);
-      let newElement = new Note(this.noteElements[index]).createNote();
-      console.log(newElement);
+      this.noteElements.forEach(() => {
+        new Note(this.noteElements[this.index]);
+        this.index++;
+      });
+     // let newElement = new Note(this.noteElements[index]).createNote();
+      //console.log(newElement);
     }
 }
 
