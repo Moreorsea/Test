@@ -631,7 +631,7 @@ textarea {
   position: absolute;
   display: none;
   left: 2%;
-  top: 50%;
+  top: 55%;
   width: 30px;
   z-index: 200;
 }
@@ -648,7 +648,7 @@ textarea {
   position: absolute;
   display: none;
   right: 2%;
-  top: 50%;
+  top: 55%;
   width: 30px;
   z-index: 200;
 }
@@ -679,8 +679,8 @@ textarea {
   display: none;
   width: 20px;
   height: 20px;
-  right: 2%;
-  top: 5%;
+  right: 5%;
+  top: 10%;
 }
 @media (min-width: 680px) {
   .container-close--button {
