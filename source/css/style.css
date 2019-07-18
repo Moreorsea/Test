@@ -598,7 +598,7 @@ textarea {
   position: fixed;
   z-index: 100;
   left: 50%;
-  top: 50%;
+  top: 60%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   height: 70%;
@@ -677,10 +677,18 @@ textarea {
 .container-close--button {
   position: absolute;
   display: none;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   right: 2%;
-  top: 3%;
+  top: 5%;
+}
+@media (min-width: 680px) {
+  .container-close--button {
+    width: 30px;
+    height: 30px;
+    right: 2%;
+    top: 3%;
+  }
 }
 .about {
   font-family: "Helvetica";
@@ -1181,7 +1189,7 @@ textarea {
 .page-header {
   line-height: 16px;
   width: 100%;
-  /*position: fixed;*/
+  position: fixed;
   background-color: #ffffff;
   z-index: 4;
 }
