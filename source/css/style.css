@@ -583,7 +583,7 @@ textarea {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  height: 80%;
+  height: 70%;
   width: auto;
   opacity: 1;
 }
@@ -615,6 +615,16 @@ textarea {
   left: 2%;
   top: 40%;
   width: 30px;
+  z-index: 200;
+}
+@media (min-width: 680px) {
+  .container-button--prev {
+    position: absolute;
+    display: none;
+    left: 2%;
+    top: 40%;
+    width: 30px;
+  }
 }
 .container-button--next {
   position: absolute;
@@ -622,6 +632,16 @@ textarea {
   right: 2%;
   top: 40%;
   width: 30px;
+  z-index: 200;
+}
+@media (min-width: 680px) {
+  .container-button--next {
+    position: absolute;
+    display: none;
+    right: 2%;
+    top: 40%;
+    width: 30px;
+  }
 }
 @media (min-width: 1200px) {
   .container-button--prev {

@@ -161,7 +161,7 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%,-50%);
-	height: 80%;
+	height: 70%;
   width: auto;
   opacity: 1;
 }
@@ -199,7 +199,17 @@
   left: 2%;
   top: 40%;
   width: 30px;
-//  margin-left: -150px;
+  z-index: 200;
+}
+
+@media (min-width: 680px) {
+  .container-button--prev {
+    position: absolute;
+    display: none;
+    left: 2%;
+    top: 40%;
+    width: 30px;
+  }
 }
 
 .container-button--next {
@@ -208,8 +218,20 @@
   right: 2%;
   top: 40%;
   width: 30px;
-  //margin-right: -140px;
+  z-index: 200;
 }
+
+@media (min-width: 680px) {
+  .container-button--next {
+    position: absolute;
+    display: none;
+    right: 2%;
+    top: 40%;
+    width: 30px;
+  }
+}
+
+
 
 @media(min-width: 1200px) {
   .container-button--prev {
