@@ -443,7 +443,7 @@ textarea {
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 30px;
-  padding-top: 10px;
+  /* padding-top: 10px;*/
 }
 .gallery__container::before,
 .gallery__container::after {
