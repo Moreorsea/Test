@@ -545,7 +545,7 @@ textarea {
 }
 .popup_bg {
   background-color: #000000;
-  opacity: 0.7;
+  opacity: 0.8;
   position: fixed;
   z-index: 2;
   top: 0;
@@ -555,6 +555,27 @@ textarea {
   width: auto;
   height: auto;
 }
+/*.popup_bg::before {
+  content: '';
+  background: url('../img/back.svg') no-repeat;
+  width: 50px;
+  height: 65px;
+  position: absolute;
+  z-index: 200;
+  left: 450px;
+  top: 45%;
+}
+
+.popup_bg::after {
+  content: '';
+  background: url('../img/right-arrow.svg') no-repeat;
+  width: 50px;
+  height: 65px;
+  position: absolute;
+  z-index: 200;
+  right: 450px;
+  top: 45%;
+}*/
 .popup_img {
   position: fixed;
   z-index: 100;
@@ -572,6 +593,56 @@ textarea {
   height: 30px;
   margin: 0 auto 10px;
   position: relative;
+}
+/*.container-button {
+  display: none;
+}*/
+/*.container {
+  position: relative;
+}*/
+/*.container {
+  position: relative;
+}*/
+/*.container-button--prev,
+.container-button--next {
+  display: block;
+  position: absolute;
+  z-index: 10;
+}*/
+.container-button--prev {
+  position: absolute;
+  display: none;
+  left: 2%;
+  top: 40%;
+  width: 30px;
+}
+.container-button--next {
+  position: absolute;
+  display: none;
+  right: 2%;
+  top: 40%;
+  width: 30px;
+}
+@media (min-width: 1200px) {
+  .container-button--prev {
+    position: absolute;
+    left: 24%;
+    top: 40%;
+  }
+  .container-button--next {
+    position: absolute;
+    display: none;
+    right: 24%;
+    top: 40%;
+  }
+}
+.container-close--button {
+  position: absolute;
+  display: none;
+  width: 30px;
+  height: 30px;
+  right: 2%;
+  top: 3%;
 }
 .about {
   font-family: "Helvetica";
