@@ -1181,7 +1181,7 @@ textarea {
 .page-header {
   line-height: 16px;
   width: 100%;
-  position: fixed;
+  /*position: fixed;*/
   background-color: #ffffff;
   z-index: 4;
 }
