@@ -404,8 +404,21 @@ textarea {
   overflow-x: auto;
   background-color: #000000;
   margin-bottom: 10px;
-  padding-top: 15px;
+  /*padding-top: 15px;*/
+  height: 360px;
 }
+@media (min-width: 700px) {
+  .gallery {
+    height: 400px;
+  }
+}
+/*.gallery {
+  overflow: hidden;
+  overflow-x:auto;
+  background-color: #000000;
+  margin-bottom: 10px;*/
+/*padding-top: 15px;*/
+/*}*/
 .gallery__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -419,6 +432,8 @@ textarea {
           flex-direction: row;
 }
 .gallery__container {
+  height: 80%;
+  width: auto;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -456,6 +471,9 @@ textarea {
   cursor: pointer;
   margin-right: 20px;
   opacity: 1;
+  height: 330px;
+  width: auto;
+  padding-bottom: 10px;
 }
 .gallery__img--animation-hidden {
   -webkit-animation-name: small;
