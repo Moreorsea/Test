@@ -85,6 +85,7 @@ var popupOpen = function () {
         currentId = (arrayImg.length - 1);
       }
     });
+    return currentId;
   });
 };
 
@@ -121,10 +122,8 @@ var buttonNext = document.querySelector('.container-button--next');
 var buttonClose = document.querySelector('.container-close--button');
 
 
-
-
 galleryImg.forEach((item) => { //перебираю каждый элемент
-  item.addEventListener('click', function (e) { //gallery__container
+  item.addEventListener('click', function (e) {
   var img = e.currentTarget; //получение элемента
   var element = img.cloneNode(true); //копирование элемента
   popupOpen();
@@ -137,24 +136,6 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   fadeIn(1000, document.querySelector('.popup_bg'), 0.7);
 
   var popupClose = function () {
-    /*container.addEventListener('click', function (){*/
-      /*element.classList.remove('gallery__img--animation-visible');
-      element.classList.add('gallery__img--animation-hidden');*/
-  
-      /*var removeChild = function () {*/
-       /* popup.removeChild(element);
-        element.classList.remove('popup_img');
-      };
-      setTimeout(removeChild, 600);*/
-
-      /*var hiddenPopup = function () {
-        container.classList.remove('popup_bg');
-        fadeOut(1000, document.querySelector('.popup_bg'), 0);
-        console.log('Кликнули по темному фону');
-      };
-      setTimeout(hiddenPopup, 700);*/
-
-    /*});*/
     buttonClose.addEventListener('click', function() {
       element.classList.remove('gallery__img--animation-visible');
        element.classList.add('gallery__img--animation-hidden');
@@ -173,9 +154,19 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
        setTimeout(hiddenPopup, 600);
       buttonPrev.style.display = 'none';
       buttonNext.style.display = 'none';
+      buttonClose.style.display = 'none';
  });
 
     document.addEventListener('keydown', function (evt) {
+
+      var currentTarget = evt.target;
+      console.log(currentTarget);
+      var currentElement = currentTarget.parentNode; //смотрю на каком элемент был клик
+      console.log(currentElement);
+      var currentId = currentElement.getAttribute('id'); //получаю его id
+      console.log(currentId);
+      var img = popup.querySelector('img');
+      //закрытие по esc
       if(evt.keyCode === 27) {
         element.classList.remove('gallery__img--animation-visible');
        element.classList.add('gallery__img--animation-hidden');
@@ -202,7 +193,6 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
   });
 });
 
-
 //событие перемещения к галерее
 var button = document.querySelector('.promo__button');
 var gallery = document.querySelector('.gallery');
@@ -216,7 +206,6 @@ button.addEventListener('click', function(evt) {
 
 //событие перемещения от галереи обратно вверх страницы
 var buttonBottom = document.querySelector('.button-bottom__img');
-//console.log(buttonBottom);
 
 buttonBottom.addEventListener('click', function(e) {
   window.scrollTo({
