@@ -9,7 +9,7 @@ class Note {
     constructor (info) {
         this.elementInfo = info;
         this.checked = info.checked;
-        this.createNote();
+        //this.createNote(this.transferNote);
 
     }
     createNote(transferNote){
@@ -126,9 +126,15 @@ class List {
       console.log(this.newArray);
     }
   
-    renderList (){
+    renderList (createNote){
       console.log(this.noteList);
-      this.noteList.innerHTML = '';
+     //this.noteList.innerHTML = '';
+     //this.createNote(this.transferNote());
+     console.log(this.noteElements);
+      
+      this.noteElements.createNote((element)=>{
+        this.transferNote(element);
+      });
       console.log(this.newArray);
       this.noteElements.forEach(() => {
         new Note(this.noteElements[this.index]);
