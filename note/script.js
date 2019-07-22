@@ -128,16 +128,15 @@ class List {
   
     renderList (createNote){
       console.log(this.noteList);
-     //this.noteList.innerHTML = '';
+     this.noteList.innerHTML = '';
      //this.createNote(this.transferNote());
      console.log(this.noteElements);
       
-      this.noteElements.createNote((element)=>{
-        this.transferNote(element);
-      });
       console.log(this.newArray);
       this.noteElements.forEach(() => {
-        new Note(this.noteElements[this.index]);
+        new Note(this.noteElements[this.index]).createNote((element)=>{
+          this.transferNote(element);
+        });
         this.index++;
       });
     }
