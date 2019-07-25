@@ -62,7 +62,7 @@ class List {
      this.noteList = container;
      this.listChecked = [];
      this.listUnchecked = [];
-     this.newArray = [];
+     //this.newArray = [];
      this.index = 0;
      this.noteElements = [
       {
@@ -131,36 +131,43 @@ class List {
             console.log(this.listChecked);
             console.log(this.listUnchecked);
           });
-          this.sortArray();
+         this.sortArray();
           console.log(this.listChecked);
           console.log(this.listUnchecked);
       }
     }
 
     sortArray () {
-      this.listChecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id);
+      this.listChecked.sort((prev, next) => prev.id - next.id);
       console.log(this.listChecked);
       
-      this.listUnchecked.sort((prev, next) => prev.elementInfo.id - next.elementInfo.id);
+      this.listUnchecked.sort((prev, next) => prev.id - next.id);
       console.log(this.listUnchecked);
       
       this.newArray = this.listUnchecked.concat(this.listChecked);
+      console.log(this.listUnchecked.concat(this.listChecked));
       console.log(this.newArray);
+      this.sortArray();
     }
   
-    renderList (createNote){
+    renderList (){
       //console.log(this.noteList);
-     this.noteList.innerHTML = '';
-     //this.createNote(this.transferNote());
+     //this.noteList.innerHTML = '';
+     //this.createNote(this.transferNote(element));
      //console.log(this.noteElements);
+
       
-     // console.log(this.newArray);
+      console.log(this.newArray);
       this.noteElements.forEach(() => {
         new Note(this.noteElements[this.index]).createNote((element)=>{
           this.transferNote(element);
+          console.log(this.transferNote(element));
+          console.log(element);
+          console.log(this.noteElements[this.index].createNote(element));
         });
         this.index++;
       });
+
     }
 }
 
