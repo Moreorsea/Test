@@ -147,7 +147,6 @@ class List {
       this.newArray = this.listUnchecked.concat(this.listChecked);
       console.log(this.listUnchecked.concat(this.listChecked));
       console.log(this.newArray);
-      this.sortArray();
     }
   
     renderList (){
