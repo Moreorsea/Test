@@ -10,6 +10,7 @@ class Note {
         this.elementInfo = info;
         this.checked = info.checked;
         this.id = info.id;
+        this.createNote();
     }
   
     createNote(transferNote){
@@ -90,7 +91,7 @@ class List {
           id: 3
         }
     ];
-     this.renderList();
+     //this.renderList();
     }
 
     transferNote (element) {
@@ -146,7 +147,8 @@ class List {
       
       this.newArray = this.listUnchecked.concat(this.listChecked);
       console.log(this.listUnchecked.concat(this.listChecked));
-      console.log(this.newArray);
+      console.log(this.newArray);       
+      this.renderList();              
     }
   
     renderList (){
