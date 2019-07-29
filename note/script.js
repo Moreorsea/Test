@@ -10,7 +10,7 @@ class Note {
         this.elementInfo = info;
         this.checked = info.checked;
         this.id = info.id;
-        this.createNote();
+        //this.createNote();
     }
   
     createNote(transferNote){
@@ -153,21 +153,25 @@ class List {
   
     renderList (){
       //console.log(this.noteList);
-     //this.noteList.innerHTML = '';
+    // this.noteList.innerHTML = '';
      //this.createNote(this.transferNote(element));
      //console.log(this.noteElements);
 
       
       console.log(this.newArray);
       this.noteElements.forEach(() => {
-        new Note(this.noteElements[this.index]).createNote((element)=>{
+        var newItem = new Note(this.noteElements[this.index]).createNote((element)=>{
           this.transferNote(element);
           console.log(this.transferNote(element));
           console.log(element);
           console.log(this.noteElements[this.index].createNote(element));
         });
+        console.log(newItem);
         this.index++;
+        this.noteList.appendChild(newItem);
       });
+
+      
 
     }
 }
