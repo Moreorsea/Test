@@ -33,11 +33,12 @@ class Note {
 
     elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
       this.checked = !this.checked;
+      console.log(this);
       transferNote(this);
       //new List(noteList).transferNote(this);
      // console.log(new List(noteList).transferNote(this));
       console.log(transferNote(this)); //отрабатывает корректно, если спрятать вызов transferNote выше
-      console.log(transferNote(this));
+      //console.log(transferNote(this));
       function removeElement (element) {
         noteList.removeChild(element);
       };
@@ -98,11 +99,14 @@ class List {
           id: 3
         }
     ];
-     this.renderList();
+     this.sortArray();
     }
 
     transferNote (element) {
       //здесь будут перекидываться заметки
+      console.log(element);
+      console.log(element.checked); // выводит
+      console.log(element.elementInfo.checked); //выводит
      element.elementInfo.checked = true;
       var elementId = element.elementInfo.id;
       console.log(elementId);
@@ -122,7 +126,7 @@ class List {
         
         console.log(this.listChecked);
           console.log(this.listUnchecked);
-          this.sortArray();
+          //this.sortArray();
           //this.renderList();
       } else {
          element.elementInfo.checked = false;
@@ -145,7 +149,7 @@ class List {
          
           console.log(this.listChecked);
           console.log(this.listUnchecked);
-          this.sortArray();
+          //this.sortArray();
           //this.renderList();
       }
     }
@@ -160,32 +164,28 @@ class List {
       this.newArray = this.listUnchecked.concat(this.listChecked);
       console.log(this.listUnchecked.concat(this.listChecked));
       console.log(this.newArray);       
-      //this.renderList();              
+      this.renderList();              
     }
   
     renderList (){
       //console.log(this.noteList);
-    // this.noteList.innerHTML = '';
+     this.noteList.innerHTML = '';
      //this.createNote(this.transferNote(element));
      //console.log(this.noteElements);
 
-      
-      console.log(this.newArray);
+      //console.log(this.newArray);
       this.noteElements.forEach(() => {
         var newItem = new Note(this.noteElements[this.index]).createNote((element)=>{
           this.transferNote(element);
           console.log(this.transferNote(element));
           console.log(element);
-          console.log(this.noteElements[this.index].createNote(element));
+          //console.log(this.noteElements[this.index].createNote(element));
         });
         console.log(newItem);
         this.index++;
         this.noteList.appendChild(newItem);
         //console.log(this.noteList);
       });
-
-      
-
     }
 }
 
