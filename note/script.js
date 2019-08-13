@@ -10,7 +10,6 @@ class Note {
         this.elementInfo = info;
         this.checked = info.checked;
         this.id = info.id;
-        //this.createNote();
     }
   
     createNote(transferNote){
@@ -29,16 +28,11 @@ class Note {
     elementItem.querySelector('.note-list__item-text').innerHTML = this.elementInfo.text;
     elementItem.querySelector('.note-list__item-work').innerHTML = 'В работе';
     elementItem.querySelector('.note-list__item-wrapper').parentNode.setAttribute('id', this.elementInfo.id);
-    //console.log(elementItem);
 
     elementItem.querySelector('.note-list__item-input').addEventListener('click', () => {
       this.checked = !this.checked;
       console.log(this);
       transferNote(this);
-      //new List(noteList).transferNote(this);
-     // console.log(new List(noteList).transferNote(this));
-      console.log(transferNote(this)); //отрабатывает корректно, если спрятать вызов transferNote выше
-      //console.log(transferNote(this));
       function removeElement (element) {
         noteList.removeChild(element);
       };
@@ -48,6 +42,7 @@ class Note {
         
         this.elementInfo.checked = this.checked;
         var currentElement = elementItem;
+        console.log(currentElement);
         console.log(currentElement);
         removeElement(elementItem);
         noteList.appendChild(currentElement);
@@ -71,7 +66,7 @@ class List {
      this.noteList = container;
      this.listChecked = [];
      this.listUnchecked = [];
-     this.newArray = [];
+     //this.newArray = [];
      this.index = 0;
      this.noteElements = [
       {
@@ -104,9 +99,6 @@ class List {
 
     transferNote (element) {
       //здесь будут перекидываться заметки
-      console.log(element);
-      console.log(element.checked); // выводит
-      console.log(element.elementInfo.checked); //выводит
      element.elementInfo.checked = true;
       var elementId = element.elementInfo.id;
       console.log(elementId);
@@ -126,8 +118,6 @@ class List {
         
         console.log(this.listChecked);
           console.log(this.listUnchecked);
-          //this.sortArray();
-          //this.renderList();
       } else {
          element.elementInfo.checked = false;
           this.noteElements.forEach(() => {
@@ -149,8 +139,6 @@ class List {
          
           console.log(this.listChecked);
           console.log(this.listUnchecked);
-          //this.sortArray();
-          //this.renderList();
       }
     }
 
@@ -172,19 +160,16 @@ class List {
      this.noteList.innerHTML = '';
      //this.createNote(this.transferNote(element));
      //console.log(this.noteElements);
-
-      //console.log(this.newArray);
+      console.log(this.newArray);
       this.noteElements.forEach(() => {
         var newItem = new Note(this.noteElements[this.index]).createNote((element)=>{
           this.transferNote(element);
-          console.log(this.transferNote(element));
-          console.log(element);
           //console.log(this.noteElements[this.index].createNote(element));
+          return newItem;
         });
         console.log(newItem);
         this.index++;
         this.noteList.appendChild(newItem);
-        //console.log(this.noteList);
       });
     }
 }
