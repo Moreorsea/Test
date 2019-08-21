@@ -40,7 +40,7 @@ var popupOpen = function () {
 
         // shift - смещение. Вычитаю из начальной координаты координату, где оказалась мышка
          var shift = {
-           x: startCoords.x - moveEvt.clientX, 
+           x: startCoords.x - moveEvt.clientX,
            y: startCoords.y - moveEvt.clientY
          }
 
@@ -75,7 +75,7 @@ var popupOpen = function () {
         currentId = 0;
       }
     });
-  
+
     buttonNext.addEventListener(('click'), () => { //обработка клика по правой стрелочке
       currentId++;
       console.log(currentId);
@@ -139,13 +139,13 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
     buttonClose.addEventListener('click', function() {
       element.classList.remove('gallery__img--animation-visible');
        element.classList.add('gallery__img--animation-hidden');
-   
+
        var removeChild = function () {
         popup.removeChild(element);
          element.classList.remove('popup_img');
        };
        setTimeout(removeChild, 600);
- 
+
        var hiddenPopup = function () {
          container.classList.remove('popup_bg');
          fadeOut(1000, document.querySelector('.popup_bg'), 0);
@@ -170,13 +170,13 @@ galleryImg.forEach((item) => { //перебираю каждый элемент
       if(evt.keyCode === 27) {
         element.classList.remove('gallery__img--animation-visible');
        element.classList.add('gallery__img--animation-hidden');
-   
+
        var removeChild = function () {
         popup.removeChild(element);
          element.classList.remove('popup_img');
        };
        setTimeout(removeChild, 600);
- 
+
        var hiddenPopup = function () {
          container.classList.remove('popup_bg');
          fadeOut(1000, document.querySelector('.popup_bg'), 0);
@@ -205,7 +205,7 @@ button.addEventListener('click', function(evt) {
 });
 
 //событие перемещения от галереи обратно вверх страницы
-var buttonBottom = document.querySelector('.button-bottom__img');
+var buttonBottom = document.querySelector('.button-bottom');
 
 buttonBottom.addEventListener('click', function(e) {
   window.scrollTo({
