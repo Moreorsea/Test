@@ -1,153 +1,55 @@
 .promo {
-  width: 100%;
-  min-height: 434px;
-  background-image: url("../img/1.png");
-  background-repeat: no-repeat;
-  background-position: center 0;
-  background-size: cover;
-  color: #FAFAFA;
-  font-family:  "Plumb", sans-serif;
-  font-weight: 300;
-}
-
-@media (min-width: 835px) {
-  .promo {
-    min-height: 746px;
-  }
-}
-
-@media (min-width: 1280px) {
-.promo {
-  width: 1149px;
-  margin: 0 auto;
-  position: relative;
-}
-}
-
-@media (min-width: 1280px) {
-.promo::before {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 575px;
-  width: 73px;
-  top: 243px;
-  right: -72px;
-  background-color: #202126;
+    width: 100%;
+    height: 650px;
+    background: url("../img/promo-background.png") no-repeat 0 -120px;
+    background-size: cover;
+    position: relative;
+    z-index: 4;
 }
 
 .promo::after {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 575px;
-  width: 73px;
-  top: 494px;
-  right: 248px;
-  background-color: #202126;
-  transform: rotate(-90deg);
-}
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -48px;  
+    border-left: 150px solid transparent;
+	border-right: 150px solid transparent;
+    border-top: 50px solid #292222;
+    transform:translateX(-50%);
+    left: 50%;
 }
 
 .promo__wrapper {
-  width: 95%;
-  padding-top: 120px;
-  text-align: center;
-}
-
-@media (min-width: 835px) {
-  .promo__wrapper {
-    padding-top: 250px;
-    width: 100%;
-  }
+    width: 900px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: right;
+    padding-top: 190px;
 }
 
 .promo__title {
-  font-size: 25px;
-  margin: 0 auto;
-  text-transform: uppercase;
-  padding-top: 70px;
-}
-
-@media (min-width: 835px) {
-  .promo__title {
-    text-transform: uppercase;
-    font-size: 60px;
-    text-align: center;
-  }
+    padding: 0;
+    margin: 0;
+    font-size: 64px;
+    font-family: "TTNorms";
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 80px;
 }
 
 .promo__text {
-  font-size: 14px;
-  width: 50%;
-  text-align: center;
-  margin: 0 auto;
-  display: block;
-  padding-top: 10px;
+    font-size: 40px;
+    color: #ffffff;
+    padding-top: 20px;
 }
 
-@media (min-width: 835px) {
-  .promo__text {
-    font-size: 18px;
-    padding-top: 30px;
-  }
+.promo-block {
+    width: 100%;
+    height: 450px;
+    background: url("../img/DSC02431.png") no-repeat 0 -280px;
+    background-size: cover;
+    position: relative;
 }
 
-.promo__button {
-  display: none;
-}
-
-.promo__button-img {
-  width: 25px;
-  height: 25px;
-}
-
-
-@media (min-width: 1280px) {
-  .promo__button {
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    right: -40px;
-  }
-
-  .promo__button::before  {
-    content: '';
-    width: 1px;
-    height: 33px;
-    background-color: #ffffff;
-    display: block;
-    position: absolute;
-    top: -45px;
-    left: 11px;
-  }
-}
-
-.promo__line {
-  display: none;
-}
-
-@media (min-width: 1280px) {
-  .promo__line {
-    display: block;
-    width: 1px;
-    height: 40px;
-    background-color: #ffffff;
-    position: absolute;
-    right: -32px;
-    bottom: 65px;
-  }
-
-  .promo__line::after {
-    content: "";
-    background-repeat: no-repeat;
-    width: 2px;
-    height: 10px;
-    display: block;
-    background-color: #ffffff;
-    position: absolute;
-    bottom: 20px;
-    top: 56px;
-    left: 1px;
-  }
-}

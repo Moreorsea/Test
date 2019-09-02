@@ -4,179 +4,220 @@
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c989f49e-757e-4def-8b34-3b7399dfcffc&lang=ru_RU" type="text/javascript">
+    </script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" charset="utf-8">
+      ymaps.ready(init);
+      function init () {
+      
+      //YMaps.Map - класс для создания и управления картой
+      
+      let myMap = new ymaps.Map('map', {
+        center: [44.684698, 39.975219],
+        zoom: 9
+      }, {
+        searchControlProvider: 'yandex#search' });
+
+      };
+      </script>
   </head>
   <body>
     <header class="page-header">
       <div class="page-header__wrapper">
-      <a class="header-logo" href="#">
-        <img class="header-logo__img" alt="Логотип" src="img/Logo.png">
-      </a>
-      <nav class="main-nav main-nav--closed">
-        <span class="main-nav__toggle">
-          <img class="main-nav__toggle--open" src="img/Group 91.1.png" alt="открыть меню">
-          <img class="main-nav__toggle--close main-nav__toggle--close-inactive" src="img/Group 93.png" alt="закрыть меню">
-        </span>
+          <a class="header-logo" href="#">
+            <img class="header-logo__img" alt="Логотип" src="img/home.svg" width="35" height="35">
+            <span>Майкопские Двери</span>
+          </a>
+        <section class="contacts">
+          <a href="tel:+79062527641" class="contacts__tel">8(800)200-00-00</a>
+        </section>
+      </div>
+      <nav class="main-nav">
         <ul class="main-nav__list">
           <li class="main-nav__item">
-            <a class="main-nav__link" href="#">О нас</a>
+            <a class="main-nav__link" href="#">О фабрике</a>
           </li>
           <li class="main-nav__item">
-            <a class="main-nav__link" href="#">Наши работы</a>
+            <a class="main-nav__link" href="#">Каталог</a>
           </li>
-          <li class="main-nav__item">Сотрудничество</li>
-          <li class="main-nav__item">Контакты</li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="#">Где купить</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="#">Сотрудничество</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="#">Контакты</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="#">Галерея</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="#">Акции</a>
+          </li>
         </ul>
       </nav>
-      <section class="contacts">
-          <a class="contacts__item" href="viber://add?number=89062527641">
-            <img src="img/Vector-pink.svg">
-          </a>
-          <a class="contacts__item" href="https://api.whatsapp.com/send?phone=89062527641">
-            <img src="img/Vector1.svg">
-          </a>
-          <a class="contacts__item" href="tel:89062527641">
-            <img src="img/Vector2.svg">
-          </a>
-          <a href="tel:+79062527641" class="contacts__tel">+7 906 252 7641</a>
-      </section>
-    </div>
     </header>
     <main>
       <div class="promo">
         <div class="promo__wrapper">
-          <h1 class="promo__title">Идеал в камне</h1>
-          <p class="promo__text">Двух одинаковых камней не существует</p>
-        </div>
-        <div class="promo__button">
-          <img class="promo__button-img" src="img/arrow-down.svg">
+          <h1 class="promo__title">-20 % скидка на все модели</h1>
+          <p class="promo__text">до 30.08.2019</p>
         </div>
       </div>
       <article class="about">
-        <div class="about__wrapper">
-          <h4 class="about__title">О компании</h4>
-        </div>
-        <div class="about__container">
-          <p class="about__text">Мы специализируемся на изготовлении, обработке и продаже продукции из натурального
-          балтийского камня - гранита природных форм. Клиентам мы предлагаем отстраниться от покупки клинкерной и
-          тротуарной плитки, а так же керамогранита и купить плитку из натурального камня, стоимость которой
-          равноценна выше перечисленным продуктам. Личный приобретенный опыт в области отбора и обработки натурального
-          камня позволяет нам гарантировать экологию, разнообразный дизайн, качество и сжатые сроки изготовления продукции из гранита.</p>
-          <p class="about__text">Компания располагает собственным производственным комплексом и предлагает продукцию
-          из термообработанного или шлифованного гранита под укладку и облицовку. Наша продукция используется при
-          изготовлении: полов, стен, лестниц, заборов, дорожек, отмосток, цоколей, фасадов, каминов, водопадов,
-          газонов, бассейнов и многого другого. Отдельное направление - декоративные изделия из колотого камня по
-          индивидуальным проектам и авторские дизайнерские разработки.</p>
-        </div>
-        <div class="about__img"></div>
-        <div class="about__container">
-          <p class="about__text">Мы специализируемся на изготовлении, обработке и продаже продукции из натурального
-          балтийского камня - гранита природных форм. Клиентам мы предлагаем отстраниться от покупки клинкерной и
-          тротуарной плитки, а так же керамогранита и купить плитку из натурального камня, стоимость которой
-          равноценна выше перечисленным продуктам. Личный приобретенный опыт в области отбора и обработки натурального
-          камня позволяет нам гарантировать экологию, разнообразный дизайн, качество и сжатые сроки изготовления продукции из гранита.</p>
-          <p class="about__text">Компания располагает собственным производственным комплексом и предлагает продукцию
-          из термообработанного или шлифованного гранита под укладку и облицовку. Наша продукция используется при
-          изготовлении: полов, стен, лестниц, заборов, дорожек, отмосток, цоколей, фасадов, каминов, водопадов,
-          газонов, бассейнов и многого другого. Отдельное направление - декоративные изделия из колотого камня по
-          индивидуальным проектам и авторские дизайнерские разработки.</p>
-        </div>
+        <h3 class="about__title">Создайте интерьер вместе с нами!</h3>
+        <ul class="about-list">
+          <li class="about-list__item">
+            <img class="about-list__img" src="img/shopping-cart.svg" width="50" height="50">
+            <span class="about-list__description">22 года на рынке</span>
+          </li>
+          <li class="about-list__item">
+            <img class="about-list__img" src="img/door.svg" width="50" height="50">
+            <span class="about-list__description">Более 200 000 дверных полотен</span>
+          </li>
+          <li class="about-list__item">
+            <img class="about-list__img" src="img/hand-shake.svg" width="50" height="50">
+            <span class="about-list__description">42 надежных партнера</span>
+          </li>
+          <li class="about-list__item">
+            <img class="about-list__img" src="img/shop.svg" width="50" height="50">
+            <span class="about-list__description">74 точки продаж по России</span>
+          </li>
+        </ul>
       </article>
-      <div class="container">
-        <div class="container-button">
-          <img class="container-button--prev" src="img/back.svg" alt="стрелка влево" width="40" height="45">
-        </div>
-        <div class="container-button">
-          <img class="container-button--next" src="img/right-arrow.svg" alt="стрелка вправо" width="40" height="45">
-        </div>
-        <div class="container-close">
-          <img class="container-close--button" src="img/close.svg" alt="закрыть" width="40" height="40">
-        </div>
-      </div>
-      <div class="popup">
+      <div class="promo-block">
 
       </div>
+      <div class="our-products">
+        <section class="our-products__item our-products__item--left">
+          <div class="our-products__item-wrapper our-products__item-wrapper-left">
+          <h3 class="our-products__title">Двери Империал</h3>
+          <p class="our-products__description">Это особая коллекция, здесь собраны не серийные модели, ярко выраженный дизайн, высокотехнологичная и сложная 3D резьба украшает большую часть полотен этой коллекции. В этой коллекции собраны дверные модели, которые сами по себе станут ярким акцентом в интерьере, и зададут общий тон.</p>
+          <a href="#" class="our-products__button">В раздел</a>
+          </div>
+        </section>
+        <section class="our-products__item our-products__item--middlegrey">
+            <div class="our-products__item-wrapper our-products__item-wrapper--right">
+          <h3 class="our-products__title">Двери Европея</h3>
+          <p class="our-products__description">Коллекция Европея впервые была представлена на международной выставке «Батимат 2018». Лейтмотив «Европеи» - лаконичный, современный дизайн, сориентированный в большей степени, на стильный квартирный интерьер. Неизменным остается фабричное качество и материал исполнения; любая модель коллекции изготавливается из массива Дуба или Бука.</p>
+          <a href="#" class="our-products__button">В раздел</a>
+        </div>
+        </section>
+        <section class="our-products__item our-products__item--left our-products__item--middlegrey">
+            <div class="our-products__item-wrapper our-products__item-wrapper-left">
+          <h3 class="our-products__title">Двери Классика из дуба</h3>
+          <p class="our-products__description">Элегантная классика, создающая уют и тепло, несравнимое ни с одним искусственным материалом. Глаз не устает разглядывать неповторимый узор годовых колец, созданный самой природой. Дуб — это больше чем самый качественный пиломатериал, дуб- это философия; которая несет в себе мудрость предков, гармонию с самим с собой, и непоколебимую уверенность в том, что семейный очаг никогда не угаснет.</p>
+          <a href="#" class="our-products__button">В раздел</a>
+        </div>
+        </section>
+        <section class="our-products__item">
+            <div class="our-products__item-wrapper our-products__item-wrapper--right">
+          <h3 class="our-products__title">Двери Классика из бука</h3>
+          <p class="our-products__description">Высоко экологичный материал (щепки бука в Германии используются при производстве пива, а во Франции на буке коптят колбаски). Бук гладкий на ощупь, текстура дерева слабо выраженная, поэтому особенно удачно на нем получается покрытие эмалевыми красками, на выходе получается идеально гладкая зеркальная поверхность. Модели этой коллекции это модерновая классика.</p>
+          <a href="#" class="our-products__button">В раздел</a>
+        </div>
+        </section>
+        <section class="our-products__item our-products__item--left our-products__item--img">
+            <div class="our-products__item-wrapper our-products__item-wrapper-left">
+          <h3 class="our-products__title">Двери Классика из массива ясеня</h3>
+          <p class="our-products__description">Любую модель из наших Коллекций можно выполнить из благородного массива ясеня.</p>
+          <a href="#" class="our-products__button">В раздел</a>
+        </div>
+        </section>
+        <section class="our-products__item our-products__item--middlegrey">
+            <div class="our-products__item-wrapper our-products__item-wrapper--right">
+          <h3 class="our-products__title">Межкомнатные перегородки</h3>
+          <p class="our-products__description">Современный и очень практичный способ организовать пространство. Могут быть изготовлены из дуба или бука, могут быть со стеклом или зеркалом любого дизайна, либо без стекла с обьемной или же прямой центральной филенкой. Раскладка (количество «окон» на полотне) тоже может быть выбрана Вами, наш дорогой клиент.</p>
+          <a href="#" class="our-products__button">В раздел</a>
+        </div>
+        </section>
+        <section class="our-products__item our-products__item--left our-products__item--deepgrey">
+            <div class="our-products__item-wrapper our-products__item-wrapper-left">
+          <h3 class="our-products__title">Плинтус и стеновые панели</h3>
+          <p class="our-products__description">Мы производим стеновые панели в едином стилевом решении с межкомнатными дверьми.</p>
+          <a href="#" class="our-products__button">В раздел</a>
+        </div>
+        </section>
+        <section class="our-products__item our-products__item--middlegrey">
+            <div class="our-products__item-wrapper our-products__item-wrapper--right">
+            <h3 class="our-products__title">Входные дубовые двери</h3>
+            <p class="our-products__description">Модель входной двери может выбрана из любой Коллекции.</p>
+            <a href="#" class="our-products__button">В раздел</a>
+          </div>
+          </section>
+        <section class="our-products__item our-products__item--left our-products__item--img">
+            <div class="our-products__item-wrapper our-products__item-wrapper-left">
+          <h3 class="our-products__title">Межкомнатные перегородки</h3>
+          <p class="our-products__description">Современный и очень практичный способ организовать пространство. Могут быть изготовлены из дуба или бука, могут быть со стеклом или зеркалом любого дизайна, либо без стекла с обьемной или же прямой центральной филенкой. Раскладка (количество «окон» на полотне) тоже может быть выбрана Вами, наш дорогой клиент.</p>
+          <a href="#" class="our-products__button">В раздел</a>
+        </div>
+        </section>
+        <section class="our-products__item">
+            <div class="our-products__item-wrapper our-products__item-wrapper--right">
+          <h3 class="our-products__title">Стеновые панели</h3>
+          <p class="our-products__description">Фабрика  Майкопские Двери производит стеновые панели в едином стилевом решении с межкомнатными дверьми. </p>
+          <a href="#" class="our-products__button">В раздел</a>
+        </div>
+        </section> 
+      </div>
+      <div class="request">
+        <h3 class="request__title">От 23 тыс.руб за стандартный дверной комплект из массива</h3>
+        <a class="request__button">Заявка на просчет</a>
+      </div>
+      <div class="offer">
+        <span class="offer__img">
+          <img src="img/thumbs-up.svg">
+        </span>
+        <p class="offer__text">Выгодная цена на массив, а еще - гарантия на всю продукцию 5 лет!</p>
+      </div>
       <div class="gallery">
-      <ul class="horizontal-scroll-wrapper gallery__list">
+        <h3 class="gallery__title">Фотографии клиентов</h3>
+      <ul class="gallery__list">
         <li class="gallery__container" id="0">
-          <img class="gallery__img" src="img/IMG_1022.png">
-          <img class="gallery__eye gallery__eye--visible" src="img/Vector.png">
+          <img class="gallery__img" src="img/gallery1.png">
         </li>
         <li class="gallery__container" id="1">
-          <img class="gallery__img" src="img/5.png">
-          <img class="gallery__eye" src="img/Vector.png">
+          <img class="gallery__img" src="img/gallery2.png">
         </li>
         <li class="gallery__container" id="2">
-          <img class="gallery__img" src="img/DSC08143.png">
-          <img class="gallery__eye" src="img/Vector.png">
+          <img class="gallery__img" src="img/gallery3.png">
         </li>
         <li class="gallery__container" id="3">
-          <img class="gallery__img" src="img/IMG_6924.png">
-          <img class="gallery__eye" src="img/Vector.png">
+          <img class="gallery__img" src="img/gallery4.png">
         </li>
         <li class="gallery__container" id="4">
-          <img class="gallery__img" src="img/8hVMhD8eWDs.png">
-          <img class="gallery__eye" src="img/Vector.png">
+          <img class="gallery__img" src="img/gallery5.png">
         </li>
         <li class="gallery__container" id="5">
-          <img class="gallery__img" src="img/8.png">
-          <img class="gallery__eye" src="img/Vector.png">
-        </li>
-        <li class="gallery__container" id="6">
-          <img class="gallery__img" src="img/-6WvLcbWdl0.png">
-          <img class="gallery__eye" src="img/Vector.png">
-        </li>
-        <li class="gallery__container" id="7">
-          <img class="gallery__img" src="img/g__IwWjuKBw.png">
-          <img class="gallery__eye" src="img/Vector.png">
-        </li>
-        <li class="gallery__container" id="8">
-          <img class="gallery__img" src="img/IMG_1040.png">
-          <img class="gallery__eye" src="img/Vector.png">
-        </li>
-        <li class="gallery__container gallery__line--top" id="9">
-          <img class="gallery__img" src="img/4.png">
-          <img class="gallery__eye" src="img/Vector.png">
-        </li>
-        <li class="gallery__container" id="10">
-          <img class="gallery__img" src="img/DSC00524.png">
-          <img class="gallery__eye" src="img/Vector.png">
-        </li>
-        <li class="gallery__container" id="11">
-          <img class="gallery__img" src="img/IMG_1039.png">
-          <img class="gallery__eye" src="img/Vector.png">
-        </li>
-        <li class="gallery__container" id="12">
-          <img class="gallery__img" src="img/3.png">
-          <img class="gallery__eye" src="img/Vector.png">
+          <img class="gallery__img" src="img/gallery6.png">
         </li>
       </ul>
     </div>
-      <div class="button-bottom">
-        <img class="button-bottom__img" src="img/Group 87.svg">
-      </div>
+    <div class="contacts-footer">
+      <h3 class="contacts-footer__title">Контакты</h3>
+      <p class="contacts-footer__address">Майкоп, ст.Хасанская, ул.Ленина 135 Е</p>
+      <div id="map" style="width:1200px;height:190px"></div>
+    </div>
     </main>
-    <script>
-      var navMain = document.querySelector('.main-nav');
-      var navToggle = document.querySelector('.main-nav__toggle');
-      var navOpen = navToggle.querySelector('.main-nav__toggle--open');
-      var navClose = navToggle.querySelector('.main-nav__toggle--close');
-      var navList = document.querySelector('.main-nav__list');
-      navToggle.addEventListener('click', function() {
-        if(navMain.classList.toggle('main-nav--closed') === true) {
-         navOpen.classList.remove('main-nav__toggle--open-inactive');
-         navClose.classList.add('main-nav__toggle--close-inactive');
-         navMain.classList.remove('main-nav--opened');
-         navMain.classList.add('main-nav--closed');
-        } else {
-          navOpen.classList.add('main-nav__toggle--open-inactive');
-          navClose.classList.remove('main-nav__toggle--close-inactive');
-          navMain.classList.remove('main-nav--closed');
-          navMain.classList.add('main-nav--opened');
-          navList.style.display = 'flex';
-        }
-      });
-    </script>
-    <script src="js/script.js"></script>
+    <footer>
+      <div class="consultation">
+        <div class="consultation__wrapper">
+        <div class="consultation__logo">
+          <img class="consultation__logo-img" src="img/homeWhite.svg">
+          <p class="consultation__logo-text">Еврокварт</p>
+        </div>
+        <div class="consultation-form">
+          <p class="consultation-form__text">Оставьте заявку на бесплатную консультацию</p>
+          <a class="consultation-form__button">Мне нужна консультация</a>
+        </div>
+        <div class="consultation__contacts">
+          <a class="consultation__contacts-tel">8(800)200-00-00</a>
+          <p class="consultation__contacts-text">Политика конфиденциальности</p>
+        </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
