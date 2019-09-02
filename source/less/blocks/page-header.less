@@ -5,10 +5,16 @@
 }
 
 .page-header__wrapper {
-    width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
+    margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .page-header__wrapper {
+    width: 1200px;
     position: relative;
+  }
 }
 
 .header-logo {
@@ -17,16 +23,32 @@
 }
 
 .header-logo span {
-    width: 70px;
+  width: 130px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@media (min-width: 1200px) {
+.header-logo span {
     display: block;
     color: #ffffff;
     font-size: 20px;
     width: 130px;
     line-height: 35px;
 }
+}
+
 
 .header-logo__img {
     width: 35px;
     height: 35px;
+    margin: 0 10px 0 0;
+}
+
+@media (min-width: 1200px) {
+.header-logo__img {
+   
     margin: 15px 10px 0 0;
+}
 }

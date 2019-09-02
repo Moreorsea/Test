@@ -1,6 +1,6 @@
 .promo {
     width: 100%;
-    height: 650px;
+    height: 6px;
     background: url("../img/promo-background.png") no-repeat 0 -120px;
     background-size: cover;
     position: relative;
@@ -9,6 +9,19 @@
 
 .promo::after {
     content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 71px;  
+    border-left: 150px solid transparent;
+	border-right: 150px solid transparent;
+    border-top: 50px solid #292222;
+    transform:translateX(-50%);
+    left: 50%;
+}
+
+@media (min-width: 1200px) {
+.promo::after {
     display: block;
     position: absolute;
     width: 0;
@@ -20,36 +33,72 @@
     transform:translateX(-50%);
     left: 50%;
 }
+}
 
 .promo__wrapper {
-    width: 900px;
+    width: 70%;
     height: 200px;
     margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+.promo__wrapper {
+    width: 900px;
+    
     text-align: right;
     padding-top: 190px;
+}
+
+
 }
 
 .promo__title {
     padding: 0;
     margin: 0;
-    font-size: 64px;
-    font-family: "TTNorms";
     color: #ffffff;
-    font-weight: 400;
-    line-height: 80px;
+    font-size: 30px;
+    line-height: 40px;
+    padding-top: 60px;
+}
+
+@media (min-width: 1200px) {
+    .promo__title {
+    
+        font-size: 64px;
+        font-family: "TTNorms";
+        
+        font-weight: 400;
+        line-height: 80px;
+    }
 }
 
 .promo__text {
-    font-size: 40px;
+    font-size: 20px;
     color: #ffffff;
-    padding-top: 20px;
+    padding-top: 40px;
+}
+
+@media (min-width: 1200px) {
+.promo__text {
+    font-size: 40px;
+
+}
 }
 
 .promo-block {
     width: 100%;
-    height: 450px;
-    background: url("../img/DSC02431.png") no-repeat 0 -280px;
+    height: 250px;
+    background: url("../img/DSC02431.png") no-repeat 0 -50px;
     background-size: cover;
     position: relative;
 }
 
+
+@media (min-width: 1200px) {
+.promo-block {
+    height: 472px;
+    background: url("../img/DSC02431.png") no-repeat 0 -350px;
+    background-size: cover;
+    position: relative;
+}
+}

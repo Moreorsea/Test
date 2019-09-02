@@ -5,13 +5,27 @@
 }
 
 .our-products__item-wrapper-left {
-    padding-left: 25%;
+    padding-left: 0;
 }
 
+@media (min-width: 1200px) {
+.our-products__item-wrapper-left {
+    padding-left: 25%;
+}
+}
+
+.our-products__item-wrapper {
+    width: 80%;
+    text-align: left;
+    margin: 0 auto 20px;
+}
+
+@media (min-width: 1200px) {
 .our-products__item-wrapper {
     width: 500px;
     text-align: left;
     position: relative;
+}
 }
 
 .our-products__item--middlegrey {
@@ -28,16 +42,28 @@
 }
 
 .our-products__item {
+    width: 100%;
+}
+
+@media (min-width: 1200px) {
+.our-products__item {
     width: 50%;
     height: 700px;
+}
 }
 
 .our-products__title {
     font-family: "TTNorms";
     font-weight: 400;
+    font-size: 20px;
+}
+
+@media (min-width: 1200px) {
+.our-products__title {   
     font-size: 48px;
     line-height: 60px;
     padding-top: 50px;
+}
 }
 
 .our-products__description {
@@ -61,5 +87,11 @@
 }
 
 .our-products__item-wrapper--right {
+    padding-left: 0;
+}
+
+@media (min-width: 1200px) {
+.our-products__item-wrapper--right {
     padding-left: 65px;
+}
 }
