@@ -10,9 +10,6 @@
     <script type="text/javascript" charset="utf-8">
       ymaps.ready(init);
       function init () {
-      
-      //YMaps.Map - класс для создания и управления картой
-      
       let myMap = new ymaps.Map('map', {
         center: [44.684698, 39.975219],
         zoom: 9
@@ -33,7 +30,11 @@
           <a href="tel:+79062527641" class="contacts__tel">8(800)200-00-00</a>
         </section>
       </div>
-      <nav class="main-nav">
+      <nav class="main-nav main-nav--closed">
+          <span class="main-nav__toggle">
+              <img class="main-nav__toggle--open" src="img/Group 91.1.png" alt="открыть меню">
+              <img class="main-nav__toggle--close main-nav__toggle--close-inactive" src="img/Group 93.png" alt="закрыть меню">
+            </span>
         <ul class="main-nav__list">
           <li class="main-nav__item">
             <a class="main-nav__link" href="#">О фабрике</a>
@@ -219,5 +220,26 @@
         </div>
       </div>
     </footer>
+    <script>
+      var navMain = document.querySelector('.main-nav');
+      var navToggle = document.querySelector('.main-nav__toggle');
+      var navOpen = navToggle.querySelector('.main-nav__toggle--open');
+      var navClose = navToggle.querySelector('.main-nav__toggle--close');
+      var navList = document.querySelector('.main-nav__list');
+      navToggle.addEventListener('click', function() {
+        if(navMain.classList.toggle('main-nav--closed') === true) {
+         navOpen.classList.remove('main-nav__toggle--open-inactive');
+         navClose.classList.add('main-nav__toggle--close-inactive');
+         navMain.classList.remove('main-nav--opened');
+         navMain.classList.add('main-nav--closed');
+        } else {
+          navOpen.classList.add('main-nav__toggle--open-inactive');
+          navClose.classList.remove('main-nav__toggle--close-inactive');
+          navMain.classList.remove('main-nav--closed');
+          navMain.classList.add('main-nav--opened');
+          navList.style.display = 'flex';
+        }
+      });
+    </script>
   </body>
 </html>

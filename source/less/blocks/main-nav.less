@@ -1,6 +1,7 @@
 .main-nav {
     width: 100%;
     margin: 0 auto;
+    position: relative;
 }
 
 .main-nav__list {
@@ -24,9 +25,6 @@
     justify-content: flex-end;
     padding-bottom: 30px;
 }
-
-
-
 }
 
 .main-nav__item {
@@ -50,5 +48,92 @@
     font-family: "TTNormsRegular";
 }
 
+.main-nav__toggle {
+    position: absolute;
+    top: 14px;
+    right: 40px;
+    z-index: 5;
+    display: block;
+    width: 0px;
+    height: 18px;
+    background-color: #ffffff;
+    cursor: pointer;
+    border: none;
+  }
+  
+  @media (min-width: 680px) {
+    .main-nav__toggle {
+      display: none;
+    }
+  }
 
+  .main-nav__toggle--close,
+  .main-nav__toggle--open {
+    width: 24px;
+    height: 20px;
+    border: none;
+  }
 
+  .main-nav__toggle--close-inactive {
+    display: none;
+    border: none;
+  }
+  
+  .main-nav__toggle--open-inactive {
+    display: none;
+    border: none;
+  }
+  
+  @media (min-width: 1280px) {
+    .main-nav--closed .main-nav__toggle::before,
+    .main-nav--opened .main-nav__toggle::before,
+    .main-nav--opened .main-nav__toggle::after {
+      display: none;
+    }
+  }
+
+  .main-nav--closed .main-nav__list li {
+      display: none;
+  }
+
+  .main-nav--closed .main-nav__list li:first-child {
+    display: block;
+    width: 100%;
+    background-color: #FF8A00;
+    border-top: 1px solid #a65a00;
+  }
+
+  @media (min-width: 680px) {
+    .main-nav__list {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .main-nav--opened .main-nav__list {
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    background-color: #FF8A00;
+    border: none;
+  }
+
+  .main-nav--opened .main-nav__list li:first-child {
+    border-top: 1px solid #a65a00;
+  }
+
+  @media (min-width: 680px) {
+    .main-nav--opened .main-nav__list {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .main-nav--opened .main-nav__list li:first-child {
+        border-top: none;
+    }
+
+    .main-nav--closed .main-nav__list li:first-child {
+        border-top: none;
+    }
+  }
