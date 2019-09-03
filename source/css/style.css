@@ -424,7 +424,13 @@ textarea {
   z-index: 4;
 }
 @media (min-width: 1200px) {
+  .promo {
+    height: 650px;
+  }
+}
+@media (min-width: 1200px) {
   .promo::after {
+    content: '';
     display: block;
     position: absolute;
     width: 0;
@@ -436,6 +442,7 @@ textarea {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     left: 50%;
+    z-index: 5;
   }
 }
 .promo__wrapper {
@@ -484,10 +491,16 @@ textarea {
   background-size: cover;
   position: relative;
 }
+@media (min-width: 680px) {
+  .promo-block {
+    height: 350px;
+    background-position: 0 -100px;
+  }
+}
 @media (min-width: 1200px) {
   .promo-block {
     height: 472px;
-    background: url("../img/DSC02431.png") no-repeat 0 -350px;
+    background: url("../img/DSC02431.png") no-repeat 0 -250px;
     background-size: cover;
     position: relative;
   }
@@ -524,13 +537,29 @@ textarea {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-@media (min-width: 1200px) {
+@media (min-width: 680px) {
   .about-list {
-    width: 1150px;
+    width: 550px;
+    margin: 0 auto;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+@media (min-width: 1200px) {
+  .about-list {
+    width: 1100px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 0 auto;
   }
 }
 .about-list__item {
@@ -547,9 +576,11 @@ textarea {
           flex-direction: column;
   margin: 0 auto 20px;
 }
-@media (min-width: 1200px) {
+@media (min-width: 680px) {
   .about-list__item {
-    margin: 0 20px 0 0;
+    width: 250px;
+    height: 220px;
+    margin: 10px;
   }
 }
 .about-list__description {
@@ -575,7 +606,7 @@ textarea {
 }
 @media (min-width: 1200px) {
   .our-products__item-wrapper-left {
-    padding-left: 25%;
+    padding-left: 15%;
   }
 }
 .our-products__item-wrapper {
@@ -599,9 +630,15 @@ textarea {
 .our-products__item--img {
   background: url("../img/Razdvizhnaya-peregorodka-dlya-kvartiry.png") no-repeat;
   color: #ffffff;
+  background-size: cover;
 }
 .our-products__item {
   width: 100%;
+}
+@media (min-width: 680px) {
+  .our-products__item {
+    width: 50%;
+  }
 }
 @media (min-width: 1200px) {
   .our-products__item {
@@ -643,7 +680,7 @@ textarea {
 }
 @media (min-width: 1200px) {
   .our-products__item-wrapper--right {
-    padding-left: 65px;
+    padding-left: 0;
   }
 }
 .gallery {
@@ -678,6 +715,11 @@ textarea {
   padding: 0;
   width: 90%;
 }
+@media (min-width: 680px) {
+  .gallery__list {
+    width: 600px;
+  }
+}
 @media (min-width: 1200px) {
   .gallery__list {
     width: 1170px;
@@ -691,6 +733,11 @@ textarea {
 .gallery__img {
   width: 100%;
   height: 220px;
+}
+@media (min-width: 680px) {
+  .gallery__container {
+    width: 47%;
+  }
 }
 @media (min-width: 1200px) {
   .gallery__container {
@@ -836,19 +883,11 @@ textarea {
   display: none;
   border: none;
 }
-@media (min-width: 1280px) {
-  .main-nav--closed .main-nav__toggle::before,
-  .main-nav--opened .main-nav__toggle::before,
-  .main-nav--opened .main-nav__toggle::after {
-    display: none;
-  }
-}
 .main-nav--closed .main-nav__list li {
   display: none;
 }
 .main-nav--closed .main-nav__list li:first-child {
   display: block;
-  width: 100%;
   background-color: #FF8A00;
   border-top: 1px solid #a65a00;
 }
@@ -889,11 +928,31 @@ textarea {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
+  .main-nav--closed .main-nav__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .main-nav--closed .main-nav__list li {
+    display: block;
+  }
   .main-nav--opened .main-nav__list li:first-child {
     border-top: none;
   }
   .main-nav--closed .main-nav__list li:first-child {
     border-top: none;
+  }
+}
+@media (min-width: 1200px) {
+  .main-nav--closed .main-nav__list li {
+    display: block;
   }
 }
 .request {
@@ -1001,6 +1060,16 @@ textarea {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+@media (min-width: 680px) {
+  .consultation__wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 95%;
+    margin: 0 auto;
+  }
+}
 @media (min-width: 1200px) {
   .consultation__wrapper {
     width: 1150px;
@@ -1035,6 +1104,18 @@ textarea {
   padding-top: 5px;
   margin-left: 15px;
 }
+@media (min-width: 680px) {
+  .consultation__logo-text {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+}
+@media (min-width: 1200px) {
+  .consultation__logo-text {
+    font-size: 20px;
+    margin-left: 15px;
+  }
+}
 .consultation__logo-img {
   width: 30px;
   height: 30px;
@@ -1049,6 +1130,12 @@ textarea {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+@media (min-width: 680px) {
+  .consultation-form {
+    width: 55%;
+    margin-top: 0;
+  }
 }
 @media (min-width: 1200px) {
   .consultation-form {
@@ -1085,6 +1172,13 @@ textarea {
 .consultation__contacts {
   text-align: center;
   margin-top: 30px;
+}
+@media (min-width: 680px) {
+  .consultation__contacts {
+    margin-top: 0;
+    margin-right: 15px;
+    text-align: right;
+  }
 }
 @media (min-width: 1200px) {
   .consultation__contacts {

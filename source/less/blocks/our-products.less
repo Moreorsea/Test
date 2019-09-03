@@ -10,7 +10,7 @@
 
 @media (min-width: 1200px) {
 .our-products__item-wrapper-left {
-    padding-left: 25%;
+    padding-left: 15%;
 }
 }
 
@@ -39,10 +39,17 @@
 .our-products__item--img {
     background: url("../img/Razdvizhnaya-peregorodka-dlya-kvartiry.png") no-repeat;
     color: #ffffff;
+    background-size: cover;
 }
 
 .our-products__item {
     width: 100%;
+}
+
+@media (min-width: 680px) {
+    .our-products__item {
+        width: 50%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -92,6 +99,6 @@
 
 @media (min-width: 1200px) {
 .our-products__item-wrapper--right {
-    padding-left: 65px;
+    padding-left: 0;
 }
 }
